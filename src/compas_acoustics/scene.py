@@ -21,7 +21,7 @@ class Scene(Data):
         self._sources = []
         self._receivers = []
         self.acoustic_materials = {}
-        self._supported_simulation_platforms = ['pyroomacoustics']
+        self._supported_simulation_platforms = ['pyroomacoustics', 'acousticDE']
         self.simulation_platform = simulation_platform
         self.sampling_rate = Defaults().SAMPLING_RATE
         # self.irs = None
@@ -154,7 +154,7 @@ class Scene(Data):
         self._simulation_platform = simulation_platform
         
     
-    def simulation(self, image_source_order, ray_tracing, n_rays, air_absorption):
+    def simulation(self, image_source_order, ray_tracing, n_rays, air_absorption): # TODO Not all simulation methods need ray_tracing and image_source. Suggest remove from here
         simulation = None
         
         match self.simulation_platform:
@@ -163,6 +163,7 @@ class Scene(Data):
                 simulation = self._pyroomacoustics_simulation(image_source_order, ray_tracing, n_rays, air_absorption)
                 
                 # add sources and receivers to the simulation
+                # TODO Create a unified definition for all simulation methods to check if source and receivers are inside Room 
                 for source in self.sources:
                     if(simulation.is_inside(source.position)):
                         simulation.add_source(source.position)
@@ -173,6 +174,9 @@ class Scene(Data):
                         simulation.add_microphone(receiver.position)
                     else:
                         print(f"Warning: Receiver '{receiver.name}' is outside the room and will not be added to the simulation.")
+            case 'acousticDE':
+                # prepare the walls and materials for the simulation
+                simulation = self._acoustic_de_simulation()
             case _:
                 raise NotImplementedError(f"Simulation platform '{self.simulation_platform}' is not implemented yet.")
             
@@ -281,6 +285,269 @@ class Scene(Data):
             for mic_rirs in room_rir
         ]
     
+    def _acoustic_de_simulation(self, mesh_resolution:float=1.0, fc_low:int=125, fc_high:int=8000, num_octave:int=1, dt:float= 1/20000, air_absorption:bool=True, th:int=3, tcalc:str="decay"):
+        """
+        Simulate the energy decay in the Scene using the Finite Volume diffusion equation, using acousticDE package.
+
+        Parameters
+        ----------
+        mesh_resolution: float
+            subdivision of the Finite Element Mesh in meters.
+        fc_low: int
+            lowest frequency band.
+        fc_high: int
+            highest frequency band.
+        num_octave: int
+            1 or 3 depending on how many octave per band you want.
+        dt: float
+            time discretization
+        air_absorption:  bool
+            air absorption coefficient // only one value for all the frequency bands
+        th: int
+            Enter type Absorption conditions (option 1,2,3):")) # options Sabine (th=1), Eyring (th=2) and modified by Xiang (th=3)
+        tcalc: str
+            Choose "decay" if the objective is to calculate the energy decay of the room with all its energetic parameters; Choose "stationarysource" if the aim is to understand the behaviour of a room subject to a stationary source
+
+        Returns
+        -------
+        result: dict[str, Unknown]
+            Results are saved at the root as resultsFVM.pkl
+            and are returned as a dictionnary, containing: coord_source, coord_rec, fc_low, fc_high, num_octave, dt, m_atm, th, tcalc, df_abs, center_freq, t, w_new_band, w_rec_band, w_rec_off_band, w_rec_off_deriv_band, p_rec_off_deriv_band, idx_w_rec, t_off, w_rec_x_band, w_rec_y_band, spl_stat_x_band, spl_stat_y_band, spl_r_band, spl_r_off_band, spl_r_norm_band, sch_db_band, spl_r_t0_band, t30_band, t20_band, edt_band, c80_band, d50_band, ts_band
+
+        References
+        -------
+        J. M. Navarro, J. Escolano and J. J. Lopez, Implementation and evaluation of a diffusion equation model based on finite difference schemes for sound field prediction in rooms, Applied Acoustics 73 (2012).
+        R. P. Muñoz, Numerical modeling for urban sound propagation: developments in wave-based and energy based methods, PhD Thesis, Technische Universiteit Eindhoven, 2019.
+
+        """
+
+
+        import os
+        import tempfile
+        import pandas as pd
+        import json
+        from acousticDE.FiniteVolumeMethod.FVMfunctions import number_freq
+        from acousticDE.FiniteVolumeMethod.FVM import run_fvm_sim
+
+        temp_dir = tempfile.TemporaryDirectory()
+        script_dir = temp_dir.name
+        geo_path = os.path.join(script_dir, f"{self.name}.geo")
+        gmsh_path = os.path.join(script_dir, f"{self.name}.msh")
+
+        input_data = {
+            "fc_low": fc_low, #lowest frequency
+            "fc_high": fc_high, #highest frequency
+            "num_octave": num_octave, # 1 or 3 depending on how many octave you want
+            "dt": dt, #time discretization
+            "m_atm": 0.0025 if air_absorption else 0, #air absorption coefficient // energy-based and not frequency dependant
+            "th": th, #int(input("Enter type Absorption conditions (option 1,2,3):")) # options Sabine (th=1), Eyring (th=2) and modified by Xiang (th=3)
+            "tcalc": tcalc #Choose "decay" if the objective is to calculate the energy decay of the room with all its energetic parameters; Choose "stationarysource" if the aim is to understand the behaviour of a room subject to a stationary source
+        } 
+
+        surface_names = []
+        absorption_coefficients_list = []
+        
+        # Get the number of frequency bands and their center frequencies for the
+        # specified frequency range and number of octaves
+        _nBands, center_freq = number_freq(
+            input_data["num_octave"],
+            input_data["fc_high"], input_data["fc_low"])
+        
+        # Create DataFrame containing the absorption coefficients
+        column_names = ["Material"] + [f"{int(fc)}Hz" for fc in center_freq]
+        csv_path = os.path.join(script_dir, "absorption_coefficients.csv")   
+
+        # Run gmsh FVM mesher     
+        self._compas_to_gmsh(geo_path, gmsh_path, mesh_resolution)
+
+        for acoustic_geometry in self.acoustic_objects:
+            for fkey in acoustic_geometry.acoustic_geometry.faces():
+                
+                # acoustic material of the face
+                surface_group = acoustic_geometry.acoustic_geometry.face_attribute(fkey, 'surface_group')
+                acoustic_material = acoustic_geometry.acoustic_materials.get(surface_group, None)
+                if acoustic_material is None:
+                    acoustic_material = self.acoustic_materials.get(surface_group, None)
+                    if acoustic_material is None:
+                        raise ValueError(f"No acoustic material assigned to surface group '{surface_group}'.")
+
+                surface_names.append(surface_group)
+                absorption_coefficients_list.append(acoustic_material.absorption_coefficients)
+
+        absorption_coefficients = pd.DataFrame(columns=column_names)
+        absorption_coefficients["Material"] = surface_names
+        absorption_coefficients[absorption_coefficients.columns[1:]] = absorption_coefficients_list
+        absorption_coefficients.to_csv(csv_path, index=False)
+        print(f"created csv material file \n {absorption_coefficients}")            
+
+        
+        for sid , source in enumerate(self.sources):
+            for rid, receiver in enumerate(self.receivers):
+                extra_data = {
+                    "coord_source": source.position, #source coordinates x,y,z
+                    "coord_rec": receiver.position, #rec coordinates x,y,z
+                    }
+                input_data = extra_data | input_data 
+
+                fname_input_configuration = f"{self.name}_S{sid}_R{rid}.json"
+                with open(os.path.join(script_dir, fname_input_configuration), "w") as f:
+                    json.dump(input_data, f, indent=4)
+
+                print(f"Input file successfully created: {fname_input_configuration}")        
+
+                # Run the simulation
+                result = run_fvm_sim(
+                    gmsh_path,
+                    os.path.join(script_dir, fname_input_configuration),
+                    csv_path)
+
+                print("Reverberation time T30 band values:", result["t30_band"])
+                print("Early decay time EDT band values:", result["edt_band"])
+                print("Clarity C80 band values:", result["c80_band"])
+                print("Definition D50 band values:", result["d50_band"])
+                print("Centre time Ts band values:", result["ts_band"])
+
+        return result
+
+    
+    def _compas_to_gmsh(self, geo_path, name_gmsh_file, characteristic_length):
+        """
+        Converts Compas mesh into .geo file then .msh file,
+        create Lines with consistent orientation and Line Loops with signed line indices,
+        and genrerates gmsh mesh with Physical Surface groups and a physical volume.
+
+        Adapted from code by  @author: Ilaria Fichera
+        """
+
+        import gmsh
+        
+        with open(geo_path, "w") as g:
+            total_vertices = 0
+            lid = 0
+            loop_id = 0
+            surface_loop_id = 0
+            face_to_surface_id = {}
+            idf = 0
+            vertex_offset = 0
+            for acoustic_geometry in self.acoustic_objects:    
+                # --- Points (1-based IDs with global offset) ---
+                n_vertices = acoustic_geometry.acoustic_geometry.number_of_vertices()
+                for v in acoustic_geometry.acoustic_geometry.vertices():
+                    pt = acoustic_geometry.acoustic_geometry.vertex_point(v)
+                    g.write(f"Point({vertex_offset + int(v) + 1}) = {{ {pt.x}, {pt.y}, {pt.z}, 1.0 }};\n")
+                total_vertices += n_vertices
+                g.write("\n")
+
+                # --- Lines with offset point references ---
+                edge_to_signed_lid = {}  # reset per object; keys are local vertex indices
+                for edge in acoustic_geometry.acoustic_geometry.edges():
+                    u, v = edge
+                    lid += 1
+                    g.write(f"Line({lid}) = {{ {vertex_offset + int(u) + 1}, {vertex_offset + int(v) + 1} }};\n")
+                    edge_to_signed_lid[(u, v)] = lid
+                    edge_to_signed_lid[(v, u)] = -lid
+                g.write("\n")
+
+                # --- Line Loops (one per face, ordered) ---
+                face_to_loop_id = {}
+                for face in acoustic_geometry.acoustic_geometry.faces():
+                    loop_id += 1
+                    face_to_loop_id[face] = loop_id
+                    face_vertices = acoustic_geometry.acoustic_geometry.face_vertices(face)
+                    face_lines = []
+                    for i in range(len(face_vertices)):
+                        u = face_vertices[i]
+                        v = face_vertices[(i + 1) % len(face_vertices)]
+                        face_lines.append(edge_to_signed_lid[(u, v)])
+                    lines_str = ", ".join(map(str, face_lines))
+                    g.write(f"Line Loop({loop_id}) = {{ {lines_str} }};\n")
+                g.write("\n")
+
+                # --- Plane Surfaces and Surface Loops ---
+                connected_faces = acoustic_geometry.acoustic_geometry.connected_faces()
+                
+                for idx, group in enumerate(connected_faces):
+                    surface_loop_id += 1
+                    group_surface_ids = []
+                    for face in group:
+                        idf += 1
+                        face_to_surface_id[face] = idf
+                        group_surface_ids.append(idf)
+                        g.write(f"Plane Surface({idf}) = {{ {face_to_loop_id[face]} }};\n")
+                    surface_ids_str = ", ".join(map(str, group_surface_ids))
+                    g.write(f"Surface Loop({surface_loop_id}) = {{ {surface_ids_str} }};\n")
+                g.write("\n")
+
+                # --- Physical Surfaces (using surface IDs, not face keys) ---
+                for name, indices in acoustic_geometry.surface_groups.items():
+                    surface_ids = [face_to_surface_id[face] for face in indices if face in face_to_surface_id]
+                    if surface_ids:
+                        indices_str = ", ".join(map(str, surface_ids))
+                        g.write(f'Physical Surface("{name}") = {{ {indices_str} }};\n')
+                g.write("\n")
+
+                vertex_offset += n_vertices
+
+            g.write("Volume(1) = { 1 };\n")
+            g.write(f'Physical Volume("{"RoomVolume"}") = {{ 1 }};\n')
+
+            # Physical Line (all lines)
+            lines_all = ", ".join(str(i) for i in range(1, lid+1))
+            g.write(f'Physical Line("default") = {{ {lines_all} }};\n')
+
+            g.write('Mesh.Algorithm = 6;\n')
+            g.write('Mesh.Algorithm3D = 1; // Delaunay3D, works for boundary layer insertion.\n')
+            g.write('Mesh.Optimize = 1; // Gmsh smoother, works with boundary layers (netgen version does not).\n')
+            g.write('Mesh.CharacteristicLengthFromPoints = 1;\n')
+            g.write('// Recombine Surface "*";\n')
+
+        print(f"Wrote {geo_path}: {total_vertices} points, {lid} lines, {idf} surfaces.")
+        
+        # Read the content of the Geo file
+        with open(geo_path, 'r') as file:
+            geo_content = file.readlines()
+
+        # Specify the line to be removed
+        line_to_remove = 'Mesh.RemeshAlgorithm = 1; // automatic\n'
+
+        # Remove the specified line from the content
+        if line_to_remove in geo_content:
+            geo_content.remove(line_to_remove)
+            
+        # Write the modified content back to the Geo file
+        with open(geo_path, 'w') as file:
+            file.writelines(geo_content)
+
+        # If an lc is given in the geo file, we want to compensate for this
+        lc_value = 1 # set to 1 by default
+        for line in geo_content:
+            if "lc =" in line:
+                lc_value = float(line.split('=')[1].strip().strip(';'))
+                print("Extracted value:", lc_value)
+                break
+
+        should_initialise_gmsh = False
+        if not gmsh.is_initialized():
+            should_initialise_gmsh = True
+
+        if should_initialise_gmsh:
+            gmsh.initialize()
+        gmsh.open(geo_path)
+
+        # Divide by the lc value given in the .geo file to get a correct characteristic length 
+        gmsh.option.setNumber('Mesh.MeshSizeFactor', characteristic_length / lc_value)
+        print(f"Mesh size factor: {characteristic_length / lc_value}")
+
+        gmsh.model.mesh.generate(3)
+        print(gmsh.logger.get())
+        gmsh.write(name_gmsh_file)
+
+        # mesh = gmsh.open(name_gmsh_file)  # open the file
+        # gmsh.fltk.run()  # run the file to see it in gmsh
+
+        if should_initialise_gmsh:
+            gmsh.finalize()        
+
 
 
     def add_acoustic_object(self, acoustic_object):

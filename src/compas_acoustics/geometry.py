@@ -5,6 +5,7 @@ from compas.colors import Color
 from compas.data import Data
 from compas.datastructures import Mesh
 from compas.geometry import Box
+from compas.geometry import Point
 from compas.files import OBJ
 
 from compas_viewer import Viewer
@@ -52,7 +53,7 @@ class AcousticObject(Data):
         Prepare the acoustic geometry mesh by setting default face attributes.
         """
         self.acoustic_geometry.update_default_face_attributes({'surface_group': 'default'})
-        
+
         for fkey in list(self.acoustic_geometry.faces()):
             surface_group = self.acoustic_geometry.face_attribute(fkey, 'surface_group')
             vertices = self.acoustic_geometry.face_vertices(fkey)
@@ -64,7 +65,8 @@ class AcousticObject(Data):
                 self.acoustic_geometry.face_attribute(f2, 'surface_group', surface_group)
                 
                 # update surface groups dictionary
-                self.surface_groups[surface_group].remove(fkey)
+                if fkey in self.surface_groups[surface_group]:
+                    self.surface_groups[surface_group].remove(fkey)
                 self.surface_groups[surface_group].extend([f1, f2])
        
        
@@ -188,41 +190,42 @@ class AcousticObject(Data):
 
         surface_groups = defaultdict(list)
         for group_name, group_items in obj.groups.items():
+            if group_name is None:
+                group_name = 'default'
             for item in group_items:
                 surface_groups[group_name].append(item[1])
-                
+
         mesh = Mesh.from_obj(obj_path)
+        mesh.weld()  # remove duplicate vertices and rebuild faces.
+
+        # Make sure all faces are oriented towards the center of the mesh (necessary for gmsh)    
+        mesh_centeroid = mesh.centroid()
+        mesh_center = Point(mesh_centeroid[0],mesh_centeroid[1],mesh_centeroid[2])
+        faces_to_flip =[]
+        for face in mesh.faces():
+            face_to_center_vector = mesh_center - Point(*mesh.face_centroid(face))
+            face_normal = mesh.face_normal(face)
+            dot_product = sum(x * y for x, y in zip(face_to_center_vector, face_normal))
+            if dot_product < 0:
+                faces_to_flip.append(face)
+        if len(faces_to_flip) > mesh.number_of_faces()/2:
+            faces_to_flip = list(set(mesh.faces()) - set(faces_to_flip))
+        # Flip the faces
+        for face in faces_to_flip:
+            flipped_vertices = list(reversed(mesh.face_vertices(face)))
+            mesh.delete_face(face)
+            mesh.add_face(flipped_vertices, fkey=face)
+        if faces_to_flip:
+            print(f"{len(faces_to_flip)} faces out of {mesh.number_of_faces()} got flipped for Obj: {obj_path}")
+        
+        # If the OBJ has no groups, put all faces in a 'default' group
+        if not surface_groups:
+            surface_groups['default'] = list(mesh.faces())
+
         acoustic_object = cls(acoustic_geometry=mesh, surface_groups=surface_groups, name=name)
         return acoustic_object
-    
-    
-    def display_surface_groups(self):
-        viewer = Viewer()
-        group_colors = self.surface_group_colors
-        print(self.surface_groups)
-        print(group_colors)
-        print(self.face_colors)
-        
-        for fkey in self.acoustic_geometry.faces():
-            f_centroid = self.acoustic_geometry.face_centroid(fkey)
-            surface_group = self.acoustic_geometry.face_attribute(fkey, 'surface_group')
-            tag = Tag(surface_group, f_centroid, height=30, color=group_colors[surface_group])
-            viewer.scene.add(tag, name=f"tag_{fkey}")
-        
-        viewer.scene.add(self.acoustic_geometry, name=self.name, show_points=True, facecolor=self.face_colors)
-        viewer.show()
-        
-    
-    def print_surface_groups(self, print_fkeys=False):
-        print("Surface groups:")
-        if not print_fkeys:
-            for group_name in self.surface_groups.keys():
-                print(f"  {group_name}: {len(self.surface_groups[group_name])} faces")
-        else:
-            for group_name, face_indices in self.surface_groups.items():
-                print(f"  {group_name}: {len(self.surface_groups[group_name])} faces {face_indices}")
-       
-        
+
+            
 class AcousticObjectsLibrary(AcousticObject):
     """
     A library of predefined acoustic objects.
