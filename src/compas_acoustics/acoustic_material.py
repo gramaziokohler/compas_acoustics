@@ -35,6 +35,17 @@ class AcousticMaterial(Data):
         scat_coeffs, scat_freqs = self._resolve_coefficients_from_library(scattering_coefficients, 'scattering')
         trans_coeffs, trans_freqs = self._resolve_coefficients_from_library(transmission_coefficients, 'transmission')
 
+        # For list params without explicit frequency_bands, assume default bands as their source
+        # so they participate in the intersection/union resolution alongside string params
+        if frequency_bands is None:
+            default_bands = Defaults().DEFAULT_FREQUENCY_BANDS
+            if abs_freqs is None and isinstance(abs_coeffs, (list, tuple)) and len(abs_coeffs) == len(default_bands):
+                abs_freqs = default_bands
+            if scat_freqs is None and isinstance(scat_coeffs, (list, tuple)) and len(scat_coeffs) == len(default_bands):
+                scat_freqs = default_bands
+            if trans_freqs is None and isinstance(trans_coeffs, (list, tuple)) and len(trans_coeffs) == len(default_bands):
+                trans_freqs = default_bands
+
         # Collect frequency bands sourced from library lookups (only where coefficients are present)
         lib_freq_sources = [
             (coeffs, freqs)
