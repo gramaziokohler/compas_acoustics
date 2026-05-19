@@ -1,0 +1,2346 @@
+[
+    {
+        "data": {
+            "name": "hard_surface",
+            "description": "Walls, hard surfaces average (brick walls, plaster, hard floors, etc.)",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.02,
+                0.02,
+                0.03,
+                0.03,
+                0.04,
+                0.05,
+                0.05
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "brickwork",
+            "description": "Walls, rendered brickwork",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.01,
+                0.02,
+                0.02,
+                0.03,
+                0.03,
+                0.04,
+                0.04
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "rough_concrete",
+            "description": "Rough concrete",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.02,
+                0.03,
+                0.03,
+                0.03,
+                0.04,
+                0.07,
+                0.07
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "unpainted_concrete",
+            "description": "Smooth unpainted concrete",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.01,
+                0.01,
+                0.02,
+                0.02,
+                0.02,
+                0.05,
+                0.05
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "rough_lime_wash",
+            "description": "Rough lime wash",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.02,
+                0.03,
+                0.04,
+                0.05,
+                0.04,
+                0.03,
+                0.02
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "smooth_brickwork_flush_pointing",
+            "description": "Smooth brickwork with flush pointing, painted",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.01,
+                0.01,
+                0.02,
+                0.02,
+                0.02,
+                0.02,
+                0.02
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "smooth_brickwork_10mm_pointing",
+            "description": "Smooth brickwork, 10 mm deep pointing, pit sand mortar",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.08,
+                0.09,
+                0.12,
+                0.16,
+                0.22,
+                0.24,
+                0.24
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "brick_wall_rough",
+            "description": "Brick wall, stuccoed with a rough finish",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.03,
+                0.03,
+                0.03,
+                0.04,
+                0.05,
+                0.07,
+                0.07
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "ceramic_tiles",
+            "description": "Ceramic tiles with a smooth surface",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.01,
+                0.01,
+                0.01,
+                0.02,
+                0.02,
+                0.02,
+                0.02
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "limestone_wall",
+            "description": "Limestone walls",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.02,
+                0.02,
+                0.03,
+                0.04,
+                0.05,
+                0.05,
+                0.05
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "reverb_chamber",
+            "description": "Reverberation chamber walls",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.01,
+                0.01,
+                0.01,
+                0.02,
+                0.02,
+                0.04,
+                0.04
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "concrete_floor",
+            "description": "Concrete floor",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.01,
+                0.03,
+                0.05,
+                0.02,
+                0.02,
+                0.02,
+                0.02
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "marble_floor",
+            "description": "Marble floor",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.01,
+                0.01,
+                0.01,
+                0.02,
+                0.02,
+                0.02,
+                0.02
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "plasterboard",
+            "description": "2 * 13 mm plasterboard on steel frame, 50 mm mineral wool in cavity, surface painted",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.15,
+                0.1,
+                0.06,
+                0.04,
+                0.04,
+                0.05,
+                0.05
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "wooden_lining",
+            "description": "Wooden lining, 12 mm fixed on frame",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.27,
+                0.23,
+                0.22,
+                0.15,
+                0.1,
+                0.07,
+                0.06
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "glass_3mm",
+            "description": "Single pane of glass, 3 mm",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.08,
+                0.04,
+                0.03,
+                0.03,
+                0.02,
+                0.02,
+                0.02
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "glass_window",
+            "description": "Glass window, 0.68 kg/m2",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.1,
+                0.05,
+                0.04,
+                0.03,
+                0.03,
+                0.03,
+                0.03
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "lead_glazing",
+            "description": "Lead glazing",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.3,
+                0.2,
+                0.14,
+                0.1,
+                0.05,
+                0.05
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "double_glazing_30mm",
+            "description": "Double glazing, 2\u20133 mm glass, > 30 mm gap",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.15,
+                0.05,
+                0.03,
+                0.03,
+                0.02,
+                0.02,
+                0.02
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "double_glazing_10mm",
+            "description": "Double glazing, 2\u20133 mm glass, 10 mm gap",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.1,
+                0.07,
+                0.05,
+                0.03,
+                0.02,
+                0.02,
+                0.02
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "double_glazing_inside",
+            "description": "Double glazing, lead on the inside",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.15,
+                0.3,
+                0.18,
+                0.1,
+                0.05,
+                0.05
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "wood_1.6cm",
+            "description": "Wood, 1.6 cm thick, on 4 cm wooden planks",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.18,
+                0.12,
+                0.1,
+                0.09,
+                0.08,
+                0.07,
+                0.07
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "plywood_thin",
+            "description": "Thin plywood panelling",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.42,
+                0.21,
+                0.1,
+                0.08,
+                0.06,
+                0.06
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "wood_16mm",
+            "description": "16 mm wood on 40 mm studs",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.18,
+                0.12,
+                0.1,
+                0.09,
+                0.08,
+                0.07,
+                0.07
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "audience_floor",
+            "description": "Audience floor, 2 layers, 33 mm on sleepers over concrete",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.09,
+                0.06,
+                0.05,
+                0.05,
+                0.05,
+                0.04
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "stage_floor",
+            "description": "Wood, stage floor, 2 layers, 27 mm over airspace",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.1,
+                0.07,
+                0.06,
+                0.06,
+                0.06,
+                0.06
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "wooden_door",
+            "description": "Solid wooden door",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.14,
+                0.1,
+                0.06,
+                0.08,
+                0.1,
+                0.1,
+                0.1
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "linoleum_on_concrete",
+            "description": "Linoleum, asphalt, rubber, or cork tile on concrete",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.02,
+                0.03,
+                0.03,
+                0.03,
+                0.03,
+                0.02
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "carpet_cotton",
+            "description": "Cotton carpet",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.07,
+                0.31,
+                0.49,
+                0.81,
+                0.66,
+                0.54,
+                0.48
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "carpet_tufted_9.5mm",
+            "description": "Loop pile tufted carpet, 1.4 kg/m2, 9.5 mm pile height: On hair pad, 3.0 kg/m2",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.1,
+                0.4,
+                0.62,
+                0.7,
+                0.63,
+                0.88
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "carpet_thin",
+            "description": "Thin carpet, cemented to concrete",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.02,
+                0.04,
+                0.08,
+                0.2,
+                0.35,
+                0.4
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "carpet_6mm_closed_cell_foam",
+            "description": "6 mm pile carpet bonded to closed-cell foam underlay",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.03,
+                0.09,
+                0.25,
+                0.31,
+                0.33,
+                0.44,
+                0.44
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "carpet_6mm_open_cell_foam",
+            "description": "6 mm pile carpet bonded to open-cell foam underlay",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.03,
+                0.09,
+                0.2,
+                0.54,
+                0.7,
+                0.72,
+                0.72
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "carpet_tufted_9m",
+            "description": "9 mm tufted pile carpet on felt underlay",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.08,
+                0.08,
+                0.3,
+                0.6,
+                0.75,
+                0.8,
+                0.8
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "felt_5mm",
+            "description": "Needle felt 5 mm stuck to concrete",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.02,
+                0.02,
+                0.05,
+                0.15,
+                0.3,
+                0.4,
+                0.4
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "carpet_soft_10mm",
+            "description": "10 mm soft carpet on concrete",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.09,
+                0.08,
+                0.21,
+                0.26,
+                0.27,
+                0.37
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "carpet_hairy",
+            "description": "Hairy carpet on 3 mm felt",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.11,
+                0.14,
+                0.37,
+                0.43,
+                0.27,
+                0.25,
+                0.25
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "carpet_rubber_5mm",
+            "description": "5 mm rubber carpet on concrete",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.04,
+                0.04,
+                0.08,
+                0.12,
+                0.1,
+                0.1
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "carpet_1.35_kg_m2",
+            "description": "Carpet 1.35 kg/m2, on hair felt or foam rubber",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.08,
+                0.24,
+                0.57,
+                0.69,
+                0.71,
+                0.73
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "cocos_fibre_roll_29mm",
+            "description": "Cocos fibre roll felt, 29 mm thick (unstressed), reverse side clad with paper, 2.2 kg/m2, 2 Rayl",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.1,
+                0.13,
+                0.22,
+                0.35,
+                0.47,
+                0.57
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "curtains_cotton_0.5",
+            "description": "Cotton curtains (0.5 kg/m2) draped to 3/4 area approx. 130 mm from wall",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.3,
+                0.45,
+                0.65,
+                0.56,
+                0.59,
+                0.71,
+                0.71
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "curtains_0.2",
+            "description": "Curtains (0.2 kg/m2) hung 90 mm from wall",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.05,
+                0.06,
+                0.39,
+                0.63,
+                0.7,
+                0.73,
+                0.73
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "curtains_cotton_0.33",
+            "description": "Cotton cloth (0.33 kg/m2) folded to 7/8 area",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.03,
+                0.12,
+                0.15,
+                0.27,
+                0.37,
+                0.42
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "curtains_densely_woven",
+            "description": "Densely woven window curtains 90 mm from wall",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.06,
+                0.1,
+                0.38,
+                0.63,
+                0.7,
+                0.73
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "blinds_half_open",
+            "description": "Vertical blinds, 15 cm from wall, half opened (45\u00b0)",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.03,
+                0.09,
+                0.24,
+                0.46,
+                0.79,
+                0.76
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "blinds_open",
+            "description": "Vertical blinds, 15 cm from wall, open (90\u00b0)",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.03,
+                0.06,
+                0.13,
+                0.28,
+                0.49,
+                0.56
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "curtains_velvet",
+            "description": "Tight velvet curtains",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.05,
+                0.12,
+                0.35,
+                0.45,
+                0.38,
+                0.36,
+                0.36
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "curtains_fabric",
+            "description": "Curtain fabric, 15 cm from wall",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.1,
+                0.38,
+                0.63,
+                0.52,
+                0.55,
+                0.65
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "curtains_fabric_folded",
+            "description": "Curtain fabric, folded, 15 cm from wall",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.12,
+                0.6,
+                0.98,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "curtains_glass_mat",
+            "description": "Curtains of close-woven glass mat hung 50 mm from wall",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.03,
+                0.03,
+                0.15,
+                0.4,
+                0.5,
+                0.5,
+                0.5
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "studio_curtains",
+            "description": "Studio curtains, 22 cm from wall",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.36,
+                0.26,
+                0.51,
+                0.45,
+                0.62,
+                0.76
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "chairs_wooden",
+            "description": "Wooden chairs without cushion",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.05,
+                0.08,
+                0.1,
+                0.12,
+                0.12,
+                0.12
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "chairs_unoccupied_plastic",
+            "description": "Unoccupied plastic chairs",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.06,
+                0.1,
+                0.1,
+                0.2,
+                0.3,
+                0.2,
+                0.2
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "chairs_medium_upholstered",
+            "description": "Medium upholstered concert chairs, empty",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.49,
+                0.66,
+                0.8,
+                0.88,
+                0.82,
+                0.7
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "chairs_heavy_upholstered",
+            "description": "Heavily upholstered seats, unoccupied",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.7,
+                0.76,
+                0.81,
+                0.84,
+                0.84,
+                0.81
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "chairs_upholstered_cloth",
+            "description": "Empty chairs, upholstered with cloth cover",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.44,
+                0.6,
+                0.77,
+                0.89,
+                0.82,
+                0.7,
+                0.7
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "chairs_upholstered_leather",
+            "description": "Empty chairs, upholstered with leather cover",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.4,
+                0.5,
+                0.58,
+                0.61,
+                0.58,
+                0.5,
+                0.5
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "chairs_upholstered_moderate",
+            "description": "Unoccupied, moderately upholstered chairs (0.90 m \u00d7 0.55 m)",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.44,
+                0.56,
+                0.67,
+                0.74,
+                0.83,
+                0.87
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "audience_orchestra_choir",
+            "description": "Areas with audience, orchestra or choir including narrow aisles",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.6,
+                0.74,
+                0.88,
+                0.96,
+                0.93,
+                0.85,
+                0.85
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "audience_wooden_chairs_1_m2",
+            "description": "Audience on wooden chairs, 1 per m2",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.16,
+                0.24,
+                0.56,
+                0.69,
+                0.81,
+                0.78,
+                0.78
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "audience_wooden_chairs_2_m2",
+            "description": "Audience on wooden chairs, 2 per m2",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.24,
+                0.4,
+                0.78,
+                0.98,
+                0.96,
+                0.87,
+                0.87
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "orchestra_1.5_m2",
+            "description": "Orchestra with instruments on podium, 1.5 m2 per person",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.27,
+                0.53,
+                0.67,
+                0.93,
+                0.87,
+                0.8,
+                0.8
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "audience_0.72_m2",
+            "description": "Audience area, 0.72 persons / m2",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.1,
+                0.21,
+                0.41,
+                0.65,
+                0.75,
+                0.71
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "audience_1_m2",
+            "description": "Audience area, 1 person / m2",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.16,
+                0.29,
+                0.55,
+                0.8,
+                0.92,
+                0.9
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "audience_1.5_m2",
+            "description": "Audience area, 1.5 persons / m2",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.22,
+                0.38,
+                0.71,
+                0.95,
+                0.99,
+                0.99
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "audience_2_m2",
+            "description": "Audience area, 2 persons / m2",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.26,
+                0.46,
+                0.87,
+                0.99,
+                0.99,
+                0.99
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "audience_upholstered_chairs_1",
+            "description": "Audience in moderately upholstered chairs 0,85 m \u00d7 0,63 m",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.72,
+                0.82,
+                0.91,
+                0.93,
+                0.94,
+                0.87
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "audience_upholstered_chairs_2",
+            "description": "Audience in moderately upholstered chairs 0,90 m \u00d7 0,55 m",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.55,
+                0.86,
+                0.83,
+                0.87,
+                0.9,
+                0.87
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "panel_fabric_covered_6pcf",
+            "description": "Fabric-covered panel, 6 pcf rockwool core",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.46,
+                0.93,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "panel_fabric_covered_8pcf",
+            "description": "Fabric-covered panel, 8 pcf rockwool core",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.21,
+                0.66,
+                1.0,
+                1.0,
+                0.97,
+                0.98,
+                0.98
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "facing_brick",
+            "description": "Facing-brick brickwork, open butt joins, brick dimensions 230 \u00d7 50 \u00d7 55 mm",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.04,
+                0.14,
+                0.49,
+                0.35,
+                0.31,
+                0.36
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "acoustical_plaster_25mm",
+            "description": "Acoustical plaster, approx. 25 mm thick, 3.5 kg/m2/cm",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.17,
+                0.36,
+                0.66,
+                0.65,
+                0.62,
+                0.68
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "rockwool_50mm_80kgm3",
+            "description": "Rockwool thickness = 50 mm, 80 kg/m3",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.22,
+                0.6,
+                0.92,
+                0.9,
+                0.88,
+                0.88,
+                0.88
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "rockwool_50mm_40kgm3",
+            "description": "Rockwool thickness = 50 mm, 40 kg/m3",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.23,
+                0.59,
+                0.86,
+                0.86,
+                0.86,
+                0.86,
+                0.86
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "mineral_wool_50mm_40kgm3",
+            "description": "50 mm mineral wool (40 kg/m3), glued to wall, untreated surface",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.15,
+                0.7,
+                0.6,
+                0.6,
+                0.85,
+                0.9,
+                0.9
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "mineral_wool_50mm_70kgm3",
+            "description": "50 mm mineral wool (70 kg/m3) 300 mm in front of wall",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.7,
+                0.45,
+                0.65,
+                0.6,
+                0.75,
+                0.65,
+                0.65
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "gypsum_board",
+            "description": "Gypsum board, perforation 19.6%, hole diameter 15 mm, backed by fibrous web 12 Rayl, 100 mm cavity filled with mineral fibre mat 1,05 kg/m2, 7,5 Rayl",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.3,
+                0.69,
+                1.0,
+                0.81,
+                0.66,
+                0.62
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "perforated_veneered_chipboard",
+            "description": "Perforated veneered chipboard, 50 mm, 1 mm holes, 3 mm spacing, 9% hole surface ratio, 150 mm cavity filled with 30 mm mineral wool",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.41,
+                0.67,
+                0.58,
+                0.59,
+                0.68,
+                0.35
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "fibre_absorber_1",
+            "description": "Fibre absorber, mineral fibre, 20 mm thick, 3.4 kg/m2, 50 mm cavity",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.2,
+                0.56,
+                0.82,
+                0.87,
+                0.7,
+                0.53
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "fibre_absorber_2",
+            "description": "Fibre absorber, mats of porous flexible fibrous web fabric, self-extinguishing",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.07,
+                0.07,
+                0.2,
+                0.41,
+                0.75,
+                0.97
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "ceiling_plasterboard",
+            "description": "Plasterboard ceiling on battens with large air-space above",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.2,
+                0.15,
+                0.1,
+                0.08,
+                0.04,
+                0.02
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "ceiling_fibre_absorber",
+            "description": "Fibre absorber on perforated sheet metal cartridge, 0,5 mm zinc-plated steel, 1.5 mm hole diameter, 200 mm cavity filled with 20 mm mineral wool (20 kg/m3), inflammable",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [
+                0.48,
+                0.97,
+                1.0,
+                0.97,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "ceiling_fissured_tile",
+            "description": "Fissured ceiling tile",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.49,
+                0.53,
+                0.53,
+                0.75,
+                0.92,
+                0.99
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "ceiling_perforated_gypsum_board",
+            "description": "Perforated 27 mm gypsum board (16%), d = 4,5 mm, 300 mm from ceiling",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.45,
+                0.55,
+                0.6,
+                0.9,
+                0.86,
+                0.75
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "ceiling_melamine_foam",
+            "description": "Wedge-shaped, melamine foam, ceiling tile",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.12,
+                0.33,
+                0.83,
+                0.97,
+                0.98,
+                0.95
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "ceiling_metal_panel",
+            "description": "Metal panel ceiling, backed by 20 mm Sillan acoustic tiles, panel width 85 mm, panel spacing 15 mm, cavity 35 cm",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.59,
+                0.8,
+                0.82,
+                0.65,
+                0.27,
+                0.23
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "microperforated_foil_kaefer",
+            "description": "Microperforated foil \u201cMicrosorber\u201d (Kaefer)",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.06,
+                0.28,
+                0.7,
+                0.68,
+                0.74,
+                0.53
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "microperforated_glass_sheets",
+            "description": "Microperforated glass sheets, 5 mm cavity",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.1,
+                0.45,
+                0.85,
+                0.3,
+                0.1,
+                0.05
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "hanging_absorber_panels_1",
+            "description": "Hanging absorber panels (foam), 400 mm depth, 400 mm distance",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.25,
+                0.45,
+                0.8,
+                0.9,
+                0.85,
+                0.8
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "hanging_absorber_panels_2",
+            "description": "Hanging absorber panels (foam), 400 mm depth, 700 mm distance",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [
+                0.2,
+                0.3,
+                0.6,
+                0.75,
+                0.7,
+                0.7
+            ],
+            "scattering_coefficients": [],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    }
+]

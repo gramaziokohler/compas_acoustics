@@ -29,34 +29,39 @@ scene.add_receiver(receiver_1)
 
 
 ########### visualize the scene and its surface groups
-scene.display_surface_groups()
+# scene.display_surface_groups()
 
 
 ########### what are the scene's surface groups?
 # scene.print_scene_surface_groups()
 
+########### what materials are available ?
+# print(ca.MaterialsLibrary().material_names("scattering"))
 
 ########### create acoustic materials
-concrete = ca.AcousticMaterial(name='concrete', absorption_coefficients=[0.01, 0.01, 0.02, 0.02, 0.02, 0.05, 0.05], scattering_coefficients=[0.01, 0.01, 0.03, 0.05, 0.1, 0.1, 0.1])
-plasterboard = ca.AcousticMaterial(name='plasterboard', absorption_coefficients=[0.15, 0.1, 0.06, 0.04, 0.04, 0.05, 0.05], scattering_coefficients=[0.01, 0.01, 0.03, 0.05, 0.2, 0.1, 0.1])
+concrete = ca.AcousticMaterial(name='concrete', absorption_coefficients=[0.01, 0.02, 0.02, 0.02, 0.05, 0.05], scattering_coefficients=[0.01, 0.03, 0.05, 0.1, 0.1, 0.1], frequency_bands=[125,250,500,1000,2000,4000])
+plasterboard = ca.AcousticMaterial(name='plasterboard', absorption_coefficients='unpainted_concrete', scattering_coefficients="amphitheatre_steps")
 acoustic_plaster = ca.AcousticMaterial(name='acoustic_plaster', absorption_coefficients=[0.17, 0.36, 0.66, 0.65, 0.62, 0.68, 0.80], scattering_coefficients=0.2)
 glass = ca.AcousticMaterial(name='glass', absorption_coefficients=[0.1, 0.07, 0.05, 0.03, 0.02, 0.02, 0.02], scattering_coefficients=0.05)
 plywood = ca.AcousticMaterial(name='plywood', absorption_coefficients=[0.18, 0.12, 0.1, 0.09, 0.08, 0.07, 0.07], scattering_coefficients=[0.05, 0.3, 0.03, 0.5, 0.6, 0.7, 0.7])
+scatterer = ca.MaterialsLibrary().material_from_name("amphitheatre_steps")
 
 
 ########### create a dictionary mapping surface groups to acoustic materials
 scene_materials = {
     'floor': concrete,
-    'plasterboard': plasterboard,
-    'glass': glass,
+    'plasterboard': concrete,
+    'glass': plasterboard,
     'ceiling': concrete,
-    'wood': plywood
+    'wood': concrete
 }
-scene.acoustic_materials = scene_materials
+scene.set_acoustic_materials(scene_materials, "union")
+
 
 
 ########### initialize the simulation
 scene.simulation_platform = 'pyroomacoustics'
+simulation = scene.simulation(sampling_rate=12000)
 
 
 ########### run an Image Source Method simulation
@@ -64,18 +69,18 @@ scene.simulation_platform = 'pyroomacoustics'
 
 
 ########### run a ray tracing simulation
-rirs = scene.rir_from_ray_tracing(n_rays=10000)
+# rirs = scene.rir_from_ray_tracing(n_rays=10000)
 
 
 ########### analyze the RIRs
-for rir in rirs:
-    analyser = ca.AcousticAnalyser(rir[0])
-    results = analyser.analyse()
+# for rir in rirs:
+#     analyser = ca.AcousticAnalyser(rir[0])
+#     results = analyser.analyse()
 
 
-    ########### print the results
-    analyser.print_table()
+#     ########### print the results
+#     analyser.print_table()
 
 
-    ########### plot results
-    analyser.plot(['T30', 'C50'])
+#     ########### plot results
+#     analyser.plot(['T30', 'C50'])

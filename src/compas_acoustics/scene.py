@@ -20,10 +20,11 @@ class Scene(Data):
         self._acoustic_objects = []
         self._sources = []
         self._receivers = []
-        self.acoustic_materials = {}
+        self._acoustic_materials = {}
         self._supported_simulation_platforms = ['pyroomacoustics', 'acousticDE']
         self.simulation_platform = simulation_platform
         self.sampling_rate = Defaults().SAMPLING_RATE
+        self.frequency_bands = Defaults().DEFAULT_FREQUENCY_BANDS
         # self.irs = None
         
         
@@ -96,10 +97,33 @@ class Scene(Data):
     @property
     def acoustic_materials(self):
         return self._acoustic_materials
+      
     
     
-    @acoustic_materials.setter
-    def acoustic_materials(self, acoustic_materials:dict):
+    def set_acoustic_materials(self, acoustic_materials:dict, resize_bands:str = "intersection"):
+        """
+        Make sure all materials in the scene have the same frequency bands.
+
+        Parameters
+        ----------
+        acoustic_materials : dict
+            dictionnary of compas.acoustic_material s
+        resize_bands : str
+            'intersection': truncates all frequency bands to the shortest common center frequencies of all scene materials.
+            'union': fill missing frequency bands to match the longest common center frequencies of all scene materials by duplicating bound values.
+        """
+        all_bands = [m.frequency_bands for m in set(acoustic_materials.values())]
+
+        if resize_bands == 'union':
+            target_bands = sorted(set().union(*all_bands))
+        else:  # intersection
+            target_bands = sorted(set(all_bands[0]).intersection(*all_bands[1:]))
+
+        for acoustic_material in set(acoustic_materials.values()):
+            if acoustic_material.frequency_bands != target_bands:
+                acoustic_material.resample_frequency_bands(target_bands)
+
+        self.frequency_bands = target_bands
         self._acoustic_materials = acoustic_materials          
     
     
@@ -154,13 +178,20 @@ class Scene(Data):
         self._simulation_platform = simulation_platform
         
     
-    def simulation(self, image_source_order, ray_tracing, n_rays, air_absorption): # TODO Not all simulation methods need ray_tracing and image_source. Suggest remove from here
+    def simulation(self, image_source_order=None, ray_tracing=None, n_rays=None, air_absorption=None, sampling_rate=None): # TODO Not all simulation methods need ray_tracing and image_source. Suggest remove from here
         simulation = None
         
         match self.simulation_platform:
             case 'pyroomacoustics':
                 # prepare the walls and materials for the simulation
-                simulation = self._pyroomacoustics_simulation(image_source_order, ray_tracing, n_rays, air_absorption)
+                kwargs = {k: v for k, v in {
+                    'image_source_order': image_source_order,
+                    'ray_tracing': ray_tracing,
+                    'n_rays': n_rays,
+                    'air_absorption': air_absorption,
+                    'sampling_rate': sampling_rate,
+                }.items() if v is not None}
+                simulation = self._pyroomacoustics_simulation(**kwargs)
                 
                 # add sources and receivers to the simulation
                 # TODO Create a unified definition for all simulation methods to check if source and receivers are inside Room 
@@ -183,10 +214,28 @@ class Scene(Data):
         return simulation
     
     
-    def _pyroomacoustics_simulation(self, image_source_order:int=3, ray_tracing:bool=False, n_rays:int=10000, air_absorption:bool=True):
+    def _pyroomacoustics_simulation(self, image_source_order:int=3, ray_tracing:bool=False, n_rays:int=10000, air_absorption:bool=True, sampling_rate:int = None):
         import pyroomacoustics as pra
         import numpy as np
         
+
+        # Number of frequencies bands that pyroomacoustics will use depending on frequency bands. Base_freq is hardcoded to 125 Hz because of Air absoprtion
+        min_sampling_rate = 125 * (2 ** len(self.frequency_bands))
+        max_sampling_rate = 125 * (2 ** (len(self.frequency_bands) + 1)) - 1
+
+        if sampling_rate:
+            if min_sampling_rate <= sampling_rate <= max_sampling_rate:
+                self.sampling_rate = sampling_rate
+            else:
+                self.sampling_rate = max_sampling_rate
+                print(f"Provided sampling rate does not match the acoustic materials frequency bands. Sampling rate was set to the closest value authorized by pyroomacoustics: {self.sampling_rate} Hz.")
+        else:
+            self.sampling_rate = max_sampling_rate
+            print(f"Sampling rate was set to the maximum value authorized by pyroomacoustics regarding the specificied acoustic materials: {self.sampling_rate} Hz.")
+
+        pyroom_frequency_bands = list(pra.acoustics.OctaveBandsFactory(fs = self.sampling_rate).centers)
+        print(f"Pyroom_acoustics forced frequency bands: {pyroom_frequency_bands} for sampling rate: {self.sampling_rate} Hz.")        
+
         # create the walls
         walls = []
         for acoustic_geometry in self.acoustic_objects:
@@ -202,7 +251,9 @@ class Scene(Data):
                     acoustic_material = self.acoustic_materials.get(surface_group, None)
                     if acoustic_material is None:
                         raise ValueError(f"No acoustic material assigned to surface group '{surface_group}'.")
-                    
+
+                if set(acoustic_material.frequency_bands) != set(pyroom_frequency_bands):
+                    acoustic_material.resample_frequency_bands(pyroom_frequency_bands)  
                 material_settings = {
                     'description': acoustic_material.name,
                     'coeffs': acoustic_material.absorption_coefficients,
@@ -223,7 +274,7 @@ class Scene(Data):
         # create the room
         room = pra.Room(
             walls,
-            fs=16000, #TODO Figure out how to set this to something more than 16000. Currently, anything above 16000 will cause an error when air absorption is enabled.
+            fs=self.sampling_rate,
             max_order=image_source_order,
             ray_tracing=ray_tracing,
             air_absorption=air_absorption,

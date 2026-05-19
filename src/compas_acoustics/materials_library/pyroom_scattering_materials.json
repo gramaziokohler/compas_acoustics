@@ -1,0 +1,177 @@
+[
+    {
+        "data": {
+            "name": "rpg_skyline",
+            "description": "Diffuser RPG Skyline",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000
+            ],
+            "absorption_coefficients": [],
+            "scattering_coefficients": [
+                0.01,
+                0.08,
+                0.45,
+                0.82,
+                1.0
+            ],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "rpg_qrd",
+            "description": "Diffuser RPG QRD",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [],
+            "scattering_coefficients": [
+                0.06,
+                0.15,
+                0.45,
+                0.95,
+                0.88,
+                0.91
+            ],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "theatre_audience",
+            "description": "Theatre Audience",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [],
+            "scattering_coefficients": [
+                0.3,
+                0.5,
+                0.6,
+                0.6,
+                0.7,
+                0.7,
+                0.7
+            ],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "classroom_tables",
+            "description": "Rows of classroom tables and persons on chairs",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000,
+                8000
+            ],
+            "absorption_coefficients": [],
+            "scattering_coefficients": [
+                0.2,
+                0.3,
+                0.4,
+                0.5,
+                0.5,
+                0.6,
+                0.6
+            ],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "amphitheatre_steps",
+            "description": "Amphitheatre steps, length 82 cm, height 30 cm (Farnetani 2005)",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000
+            ],
+            "absorption_coefficients": [],
+            "scattering_coefficients": [
+                0.05,
+                0.45,
+                0.75,
+                0.9,
+                0.9
+            ],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "rect_prism_boxes",
+            "description": "Rectangularandprismboxes (studio wall) \u201cRound Robin III\u201d (after (Bork 2005a))",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [],
+            "scattering_coefficients": [
+                0.5,
+                0.9,
+                0.95,
+                0.95,
+                0.95,
+                0.95
+            ],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    },
+    {
+        "data": {
+            "name": "trapezoidal_boxes",
+            "description": "Trapezoidal boxes (studio ceiling) \u201cRound Robin III\u201d (after (Bork 2005a))",
+            "frequency_bands": [
+                125,
+                250,
+                500,
+                1000,
+                2000,
+                4000
+            ],
+            "absorption_coefficients": [],
+            "scattering_coefficients": [
+                0.13,
+                0.56,
+                0.95,
+                0.95,
+                0.95,
+                0.95
+            ],
+            "transmission_coefficients": []
+        },
+        "dtype": "compas_acoustics.acoustic_material/AcousticMaterial"
+    }
+]

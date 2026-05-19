@@ -33,7 +33,7 @@ scene.add_receiver(receiver_1)
 
 
 ########### create acoustic materials
-concrete = ca.AcousticMaterial(name='concrete', absorption_coefficients=[0.01, 0.01, 0.02, 0.02, 0.02, 0.05, 0.05], scattering_coefficients=[0.01, 0.01, 0.03, 0.05, 0.1, 0.1, 0.1])
+concrete = ca.AcousticMaterial(name='concrete', absorption_coefficients=[0.01, 0.01, 0.02, 0.02, 0.02, 0.05], scattering_coefficients=[0.01, 0.01, 0.03, 0.05, 0.1, 0.1], frequency_bands=[500, 1000, 2000, 4000, 8000, 16000])
 marble = ca.AcousticMaterial(name='marble', absorption_coefficients=[0.01, 0.01, 0.01, 0.02, 0.02, 0.02, 0.02], scattering_coefficients=[0.01, 0.01, 0.03, 0.05, 0.1, 0.1, 0.1])
 brickwall = ca.AcousticMaterial(name='brickwall', absorption_coefficients=[0.01, 0.02, 0.02, 0.03, 0.03, 0.04, 0.04], scattering_coefficients=[0.01, 0.01, 0.03, 0.05, 0.2, 0.25, 0.3])
 carpet = ca.AcousticMaterial(name='carpet', absorption_coefficients=[0.07, 0.31, 0.49, 0.81, 0.66, 0.54, 0.48], scattering_coefficients=0.4)
@@ -41,43 +41,40 @@ acoustic_plaster = ca.AcousticMaterial(name='acoustic_plaster', absorption_coeff
 
 ########### create a dictionary mapping surface groups to acoustic materials
 scene_materials = {
-    'floor': acoustic_plaster,
+    'floor': concrete,
     'left_wall': brickwall,
     'front_wall': brickwall,
     'right_wall': carpet,
     'back_wall': brickwall,
     'ceiling': acoustic_plaster,
 }
-scene.acoustic_materials = scene_materials
+scene.set_acoustic_materials(scene_materials)
 
 
 ########### initialize the simulation
 sim = scene.simulation_platform = 'pyroomacoustics'
-print(sim)
-print("jgjhgjhg")
 
-exit()
 ########### run an Image Source Method simulation
-rir = scene.rir_from_image_source_method(image_source_order=9)
+rir = scene.rir_from_image_source_method(image_source_order=3)
 
 
 ########### run a ray tracing simulation
-# rir = scene.rir_from_ray_tracing(n_rays=10000, air_absorption=True)
+rir = scene.rir_from_ray_tracing(n_rays=10000, air_absorption=True)
 
-export_path = os.path.join(os.path.dirname(__file__), 'rir_16k.wav')
-write(export_path, scene.sampling_rate, rir[0][0])
-
-
-########### analyze the RIR
-analyser = ca.AcousticAnalyser(rir[0][0])
-results = analyser.analyse()
+# export_path = os.path.join(os.path.dirname(__file__), 'rir_16k.wav')
+# write(export_path, scene.sampling_rate, rir[0][0])
 
 
-# ########### print the results
-analyser.print_table()
+# ########### analyze the RIR
+# analyser = ca.AcousticAnalyser(rir[0][0])
+# results = analyser.analyse()
 
 
-# ########### plot results
-analyser.plot_rir()
-analyser.plot_frequency_response(smooth=3)
-# analyser.plot('T30')
+# # ########### print the results
+# analyser.print_table()
+
+
+# # ########### plot results
+# analyser.plot_rir()
+# analyser.plot_frequency_response(smooth=3)
+# # analyser.plot('T30')

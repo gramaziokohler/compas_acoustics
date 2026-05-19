@@ -35,7 +35,7 @@ scene.add_receiver(receiver_1)
 
 
 ########### create acoustic materials
-concrete = ca.AcousticMaterial(name='concrete', absorption_coefficients=[0.01, 0.01, 0.02, 0.02, 0.02, 0.05, 0.05], scattering_coefficients=[0.01, 0.01, 0.03, 0.05, 0.1, 0.1, 0.1])
+concrete = ca.AcousticMaterial(name='concrete', absorption_coefficients=[0.01, 0.02, 0.02, 0.02, 0.05], scattering_coefficients=[0.01, 0.03, 0.05, 0.1, 0.1], frequency_bands=[1000,2000,4000,8000,16000])
 plasterboard = ca.AcousticMaterial(name='plasterboard', absorption_coefficients=[0.15, 0.1, 0.06, 0.04, 0.04, 0.05, 0.05], scattering_coefficients=[0.01, 0.01, 0.03, 0.05, 0.2, 0.1, 0.1])
 acoustic_plaster = ca.AcousticMaterial(name='acoustic_plaster', absorption_coefficients=[0.17, 0.36, 0.66, 0.65, 0.62, 0.68, 0.80], scattering_coefficients=0.2)
 glass = ca.AcousticMaterial(name='glass', absorption_coefficients=[0.1, 0.07, 0.05, 0.03, 0.02, 0.02, 0.02], scattering_coefficients=0.05)
@@ -51,13 +51,13 @@ scene_materials = {
     'ceiling': concrete,
     'wood': plywood
 }
-scene.acoustic_materials = scene_materials
+scene.set_acoustic_materials(scene_materials,'intersection')
 
 
 ########### initialize the simulation
-scene.simulation_platform = 'acousticDE'
+# scene.simulation_platform = 'acousticDE'
 
 
-########### run simulation
-scene._acoustic_de_simulation(mesh_resolution=1.0)
-# scene._pyroomacoustics_simulation()
+# ########### run simulation
+# scene._acoustic_de_simulation(mesh_resolution=1.0)
+# # scene._pyroomacoustics_simulation()
