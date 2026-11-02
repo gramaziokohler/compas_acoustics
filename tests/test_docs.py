@@ -15,7 +15,7 @@ def read(rel):
 
 
 def test_the_api_reference_lists_every_public_name():
-    listed = set(re.findall(r"^\s{4}(\w+)\s*$", read("docs/api/compas_acoustics.rst"), re.M))
+    listed = set(re.findall(r"^::: compas_acoustics\.(\w+)$", read("docs/api/compas_acoustics.md"), re.M))
     assert set(compas_acoustics.__all__) | {"Binaural", "Ambisonics"} <= listed
 
 
@@ -27,8 +27,8 @@ def test_every_example_has_a_docs_page_and_the_tutorial_has_content():
 
     generate(check=False)  # the example pages are generated and gitignored
     for name in EXAMPLES:
-        assert f"/../examples/{name}.py" in read(f"docs/python/examples/{name}.rst")
-    assert read("docs/python/tutorial.rst").count(".. code-block:: python") >= 4
+        assert f'--8<-- "examples/{name}.py"' in read(f"docs/python/examples/{name}.md")
+    assert read("docs/python/tutorial.md").count("```python") >= 4
 
 
 def test_the_sound_library_readme_lists_the_files_the_package_has():
