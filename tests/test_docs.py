@@ -2,10 +2,12 @@
 
 import pathlib
 import re
+import sys
 
 import compas_acoustics
 
 ROOT = pathlib.Path(__file__).parents[1]
+sys.path.insert(0, str(ROOT / "docs" / "_ext"))
 
 
 def read(rel):
@@ -21,6 +23,9 @@ EXAMPLES = ["simple_simulation_shoebox", "obj", "rays", "scattered_rays", "specu
 
 
 def test_every_example_has_a_docs_page_and_the_tutorial_has_content():
+    from ghcomponents import generate
+
+    generate(check=False)  # the example pages are generated and gitignored
     for name in EXAMPLES:
         assert f"/../examples/{name}.py" in read(f"docs/python/examples/{name}.rst")
     assert read("docs/python/tutorial.rst").count(".. code-block:: python") >= 4
