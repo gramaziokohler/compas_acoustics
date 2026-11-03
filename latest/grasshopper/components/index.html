@@ -1,0 +1,1071 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <link rel="icon" href="../../_static/compas.ico" type="image/x-icon">
+    <title>Components &#8212; compas_acoustics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/compas.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'grasshopper/components/index';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/gramaziokohler/compas_acoustics/gh-pages/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'latest';
+        </script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Acoustic Object" href="CA_Acoustic_Object.html" />
+    <link rel="prev" title="Getting started in Grasshopper" href="../getting_started.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/compas_icon_white.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/compas_icon_white.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+    <p class="title logo__title">compas_acoustics</p>
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <!-- <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../concepts.html">
+                        Concepts
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../installation/index.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../python/tutorial.html">
+                        Tutorial
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../python/examples/index.html">
+                        Python examples
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting_started.html">
+                        Getting started in Grasshopper
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Components
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../examples/index.html">
+                        Grasshopper examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../troubleshooting.html">
+                        Troubleshooting
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../contributing/docs.html">
+                        Contributing to the documentation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../changelog.html">
+                        Changelog
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../license.html">
+                        License and credits
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+  </ul> -->
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      latest  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/gramaziokohler/compas_acoustics" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://forum.compas-framework.org/" title="Discourse" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-discourse"></i></span>
+            <label class="sr-only">Discourse</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <!-- <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../concepts.html">
+                        Concepts
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../installation/index.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../python/tutorial.html">
+                        Tutorial
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../python/examples/index.html">
+                        Python examples
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting_started.html">
+                        Getting started in Grasshopper
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Components
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../examples/index.html">
+                        Grasshopper examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../troubleshooting.html">
+                        Troubleshooting
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../contributing/docs.html">
+                        Contributing to the documentation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../changelog.html">
+                        Changelog
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../license.html">
+                        License and credits
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+  </ul> -->
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      latest  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/gramaziokohler/compas_acoustics" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://forum.compas-framework.org/" title="Discourse" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-discourse"></i></span>
+            <label class="sr-only">Discourse</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../installation/index.html">Installation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/grasshopper.html">Install in Rhino 8 and Grasshopper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/python.html">Install in Python</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../python/examples/index.html">Python examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../python/examples/obj.html">A room from OBJ files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python/examples/rays.html">Visualise the specular rays of a ray-tracing simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python/examples/scattered_rays.html">Visualise coefficient-driven scattered rays of a ray-tracing simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python/examples/simple_simulation_shoebox.html">A simple simulation in a shoebox room</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python/examples/specular_reflections.html">Visualise the specular reflection paths of the image source method</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Grasshopper</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started in Grasshopper</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Components</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="CA_Acoustic_Object.html">Acoustic Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Analyse_IR.html">Analyse Impulse Response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Audio_Player.html">Audio Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Auralise.html">Auralise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Channel.html">Check Channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Construct_Material.html">Construct Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Deconstruct_IR.html">Deconstruct Parameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Deconstruct_IR_Graph.html">Deconstruct IR Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Deconstruct_Material.html">Deconstruct Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Material_Library.html">Material Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Model.html">Acoustic Scene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Plot_2D.html">Plot 2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Receiver.html">Receiver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Regularized_Fitness.html">Regularized Fitness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Simulate_Ambisonics.html">Simulate Ambisonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Simulate_Binaural.html">Simulate Binaural</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Simulate_Mono.html">Simulate Mono</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Source.html">Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Visualise_Billiard.html">Visualise Billiard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Visualise_Energy_Map.html">Visualise Energy Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Visualise_Rays.html">Visualise Rays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Visualise_Reflections.html">Visualise Reflections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CA_Worker.html">Worker</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../examples/index.html">Grasshopper examples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/simple_simulation_shoebox.html">A simple simulation in a shoebox room</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/compas_acoustics.html">compas_acoustics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.Scene.html">Scene</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.AcousticObject.html">AcousticObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.AcousticObjectsLibrary.html">AcousticObjectsLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.RoomGeometry.html">RoomGeometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.Source.html">Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.Receiver.html">Receiver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.AirConditions.html">AirConditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.AcousticMaterial.html">AcousticMaterial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.MaterialCategory.html">MaterialCategory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.MaterialsLibrary.html">MaterialsLibrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.SimulationMethod.html">SimulationMethod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.Mono.html">Mono</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.Binaural.html">Binaural</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.Ambisonics.html">Ambisonics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.ImpulseResponse.html">ImpulseResponse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.Analyser.html">Analyser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.EnergyMap.html">EnergyMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.regularized_fitness.html">regularized_fitness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.Ray.html">Ray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.ScatteredRay.html">ScatteredRay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.RayField.html">RayField</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.SpecularPath.html">SpecularPath</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.SpecularReflections.html">SpecularReflections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.Auraliser.html">Auraliser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.AudioPlayer.html">AudioPlayer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/generated/compas_acoustics.Defaults.html">Defaults</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/docs.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License and credits</a></li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="sidebar-primary-item"><div class="sidebar-primary-item">
+    <a href="https://compas.dev" target="_blank">
+        COMPAS.dev <i class="fa fa-external-link" aria-hidden="true"></i>
+    </a>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Components</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="components">
+<h1>Components</h1>
+<p>Every component of the plugin, by ribbon panel. Each page lists its inputs and outputs.</p>
+<section id="elements">
+<h2>Elements</h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Acoustic_Object.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Acoustic Object</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Obj</span></code> · Create an AcousticObject with the specified geometry, material and role.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Acoustic_Object.html"><span class="doc">Acoustic Object</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Construct_Material.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Construct Material</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">ConMat</span></code> · Create an AcousticMaterial for AcousticObject(s).</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Construct_Material.html"><span class="doc">Construct Material</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Deconstruct_Material.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Deconstruct Material</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">DeMat</span></code> · Deconstruct an AcousticMaterial object into its components.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Deconstruct_Material.html"><span class="doc">Deconstruct Material</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Material_Library.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Material Library</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">MatLib</span></code> · Preset picker for AcousticMaterial.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Material_Library.html"><span class="doc">Material Library</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Receiver.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Receiver</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Receiver</span></code> · Acoustic Receiver object (microphone, human ear, etc.) with an orientation: the direction it faces, upright (+z up), which sets the frame of ambisonic responses (x facing, y left, z up).</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Receiver.html"><span class="doc">Receiver</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Source.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Source</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Source</span></code> · Acoustic Source object (speaker, human, etc.).</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Source.html"><span class="doc">Source</span></a></div>
+</div>
+</div>
+</div>
+</section>
+<section id="model">
+<h2>Model</h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Model.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Acoustic Scene</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Scene</span></code> · Create an acoustic scene with the specified objects, sources and receivers.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Model.html"><span class="doc">Acoustic Scene</span></a></div>
+</div>
+</div>
+</div>
+</section>
+<section id="simulation">
+<h2>Simulation</h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Deconstruct_IR_Graph.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Deconstruct IR Graph</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">DeIRGraph</span></code> · Deconstruct an impulse response graph into ImpulseResponse(s).</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Deconstruct_IR_Graph.html"><span class="doc">Deconstruct IR Graph</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Simulate_Ambisonics.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Simulate Ambisonics</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">SimAmbi</span></code> · Simulate ambisonic room impulse responses (ACN, SN3D): image sources, optional edge diffraction around obstacles and at the edges of the room’s boundary that open wider than 180 deg, and a directional feedback delay network tail.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Simulate_Ambisonics.html"><span class="doc">Simulate Ambisonics</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Simulate_Binaural.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Simulate Binaural</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">SimBin</span></code> · Simulate binaural room impulse responses, an HRTF per path and per delay line: image sources, optional edge diffraction around obstacles and at the edges of the room’s boundary that open wider than 180 deg, and a directional feedback delay network tail.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Simulate_Binaural.html"><span class="doc">Simulate Binaural</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Simulate_Mono.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Simulate Mono</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">SimMono</span></code> · Simulate mono room impulse responses with pyroomacoustics: the image source method (ISM), plus ray tracing (RT) by default.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Simulate_Mono.html"><span class="doc">Simulate Mono</span></a></div>
+</div>
+</div>
+</div>
+</section>
+<section id="analysis">
+<h2>Analysis</h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Analyse_IR.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Analyse Impulse Response</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">AnalyseIR</span></code> · Analyse an impulse response (IR): acoustic parameters such as EDT, T20 and C50, and its time and frequency responses for Plot 2D.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Analyse_IR.html"><span class="doc">Analyse Impulse Response</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Deconstruct_IR.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Deconstruct Parameter</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">DeParam</span></code> · Deconstruct acoustic parameters.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Deconstruct_IR.html"><span class="doc">Deconstruct Parameter</span></a></div>
+</div>
+</div>
+</div>
+</section>
+<section id="auralisation">
+<h2>Auralisation</h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Auralise.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Auralise</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Auralise</span></code> · Auralise the room scene by convolving the impulse responses with the source signals.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Auralise.html"><span class="doc">Auralise</span></a></div>
+</div>
+</div>
+</div>
+</section>
+<section id="display">
+<h2>Display</h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Plot_2D.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Plot 2D</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Plot2D</span></code> · Chart an acoustic parameter (a dot per band, joined by a line), or the time or frequency response of Analyse Impulse Response (a line per channel), on the canvas: one chart per parameter connected, stacked.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Plot_2D.html"><span class="doc">Plot 2D</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Visualise_Billiard.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Visualise Billiard</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Billiard</span></code> · The rays of a ray field as particles at a time, like a 3D billiard: press Play to animate, or connect a time (a slider scrubs it) for a frozen frame.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Visualise_Billiard.html"><span class="doc">Visualise Billiard</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Visualise_Energy_Map.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Visualise Energy Map</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">EnergyMap</span></code> · Colour a surface by the sound pressure level of the scene’s sources: the surface is meshed into faces no larger than spacing, one point per face centre, and each point gets the direct sound, the first-order image sources and pyroomacoustics’ rays past them, with each source’s level at 1 m (Source spl).</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Visualise_Energy_Map.html"><span class="doc">Visualise Energy Map</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Visualise_Rays.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Visualise Rays</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Rays</span></code> · Trace rays from the scene’s sources, for display and for Visualise Billiard: each ray as a polyline over its wall hits, with the scattered rays when scattering is on.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Visualise_Rays.html"><span class="doc">Visualise Rays</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Visualise_Reflections.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Visualise Reflections</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Reflections</span></code> · The specular (image source) reflection paths from the scene’s sources to its receivers, by order, drawn in one colour per order (order 0 black).</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Visualise_Reflections.html"><span class="doc">Visualise Reflections</span></a></div>
+</div>
+</div>
+</div>
+</section>
+<section id="util">
+<h2>Util</h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Audio_Player.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Audio Player</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Player</span></code> · Show and play a signal from Auralise, an impulse response (e.g.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Audio_Player.html"><span class="doc">Audio Player</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Channel.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Check Channel</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Channel</span></code> · Number of channels of a sound: an audio file path, an impulse response, a Source with a sound file, or the signals of Auralise.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Channel.html"><span class="doc">Check Channel</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Worker.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Worker</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Worker</span></code> · The compas_acoustics worker, the Python that runs every simulation and analysis: its state, its Python, its version and whether its schema matches this plugin.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Worker.html"><span class="doc">Worker</span></a></div>
+</div>
+</div>
+</div>
+</section>
+<section id="optimization">
+<h2>Optimization</h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<img alt="" class="sd-card-img-top ca-component-icon" src="../../_images/CA_Regularized_Fitness.png" />
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Regularized Fitness</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Fitness</span></code> · A loss of a list of values against a target value: their mean absolute error (MAE) to the target, which measures accuracy, plus k times their sample standard deviation (STD), which measures consistency.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="CA_Regularized_Fitness.html"><span class="doc">Regularized Fitness</span></a></div>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+                <footer class="bd-footer-article">
+                  
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elements">Elements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model">Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation">Simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auralisation">Auralisation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display">Display</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#util">Util</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">Optimization</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2025, Gramazio Kohler Research, ETH Zurich.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
