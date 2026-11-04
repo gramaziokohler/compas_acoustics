@@ -1,0 +1,1796 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://gramaziokohler.github.io/compas_acoustics/latest/changelog.html">
+      
+      
+        <link rel="prev" href="contributing/docs.html">
+      
+      
+        <link rel="next" href="license.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/compas_logo_white_transparent.png">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Changelog - COMPAS Acoustics</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="assets/css/custom.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#changelog" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="COMPAS Acoustics" class="md-header__button md-logo" aria-label="COMPAS Acoustics" data-md-component="logo">
+      
+  <img src="assets/images/compas_logo_white_transparent.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            COMPAS Acoustics
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Changelog
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/gramaziokohler/compas_acoustics/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    gramaziokohler/compas_acoustics
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="COMPAS Acoustics" class="md-nav__button md-logo" aria-label="COMPAS Acoustics" data-md-component="logo">
+      
+  <img src="assets/images/compas_logo_white_transparent.png" alt="logo">
+
+    </a>
+    COMPAS Acoustics
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/gramaziokohler/compas_acoustics/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    gramaziokohler/compas_acoustics
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="concepts.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Installation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="installation/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="installation/grasshopper.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install in Rhino 8 and Grasshopper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="installation/python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="python/tutorial.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="python/examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grasshopper
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Grasshopper
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="grasshopper/getting_started.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started in Grasshopper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="grasshopper/components/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="grasshopper/examples/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api/compas_acoustics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="troubleshooting.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contributing/docs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing to the documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="changelog.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#unreleased" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unreleased
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unreleased">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migration-from-the-previous-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration from the previous main
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="license.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License and credits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#unreleased" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unreleased
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unreleased">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migration-from-the-previous-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration from the previous main
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<p>All notable changes to this project will be documented in this file.</p>
+<p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>,
+and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+<h2 id="unreleased">Unreleased<a class="headerlink" href="#unreleased" title="Permanent link">&para;</a></h2>
+<h3 id="migration-from-the-previous-main">Migration from the previous main<a class="headerlink" href="#migration-from-the-previous-main" title="Permanent link">&para;</a></h3>
+<p>Nothing is kept under its old name. What replaces what:</p>
+<table>
+<thead>
+<tr>
+<th>Before</th>
+<th>Now</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Simulator(scene).rir_from_ray_tracing(image_source_order=, n_rays=, air_absorption=, random_seed=)</code></td>
+<td><code>scene.simulate(Mono(ray_tracing=True, image_source_order=, n_rays=, air_absorption=, seed=))</code></td>
+</tr>
+<tr>
+<td><code>Simulator(scene).rir_from_image_source_method(order)</code></td>
+<td><code>scene.simulate(Mono(image_source_order=order, ray_tracing=False))</code></td>
+</tr>
+<tr>
+<td><code>simulator.sampling_rate = fs</code></td>
+<td><code>Scene(name, sampling_rate=fs)</code> or <code>scene.sampling_rate = fs</code></td>
+</tr>
+<tr>
+<td><code>simulator.trace_rays(...)</code></td>
+<td><code>RayField.from_scene(scene, ...)</code></td>
+</tr>
+<tr>
+<td><code>Ray(..., sound_speed=)</code>, <code>RayField(..., sound_speed=)</code></td>
+<td>removed; travel times are at <code>Defaults().DEFAULT_SPEED_OF_SOUND</code></td>
+</tr>
+<tr>
+<td><code>compas_acoustics.ray</code>, <code>compas_acoustics.specular</code></td>
+<td><code>compas_acoustics.rays</code> (or the classes from <code>compas_acoustics</code>)</td>
+</tr>
+<tr>
+<td><code>compas_acoustics.acoustic_material</code>, <code>compas_acoustics.materials_library</code></td>
+<td><code>compas_acoustics.materials</code> (or the classes from <code>compas_acoustics</code>)</td>
+</tr>
+<tr>
+<td><code>compas_acoustics.geometry</code></td>
+<td><code>compas_acoustics.acoustic_object</code> (or the classes from <code>compas_acoustics</code>)</td>
+</tr>
+<tr>
+<td><code>compas_acoustics.numerical.fitness</code></td>
+<td><code>compas_acoustics.fitness</code>, or <code>compas_acoustics.regularized_fitness</code></td>
+</tr>
+<tr>
+<td><code>compas_acoustics.pra_converter</code></td>
+<td><code>compas_acoustics.room.pra</code> (no longer an attribute of <code>compas_acoustics</code>)</td>
+</tr>
+<tr>
+<td>JSON with <code>"dtype": "compas_acoustics.&lt;module&gt;/&lt;Class&gt;"</code></td>
+<td><code>"dtype": "compas_acoustics/&lt;Class&gt;"</code>; files saved before do not load</td>
+</tr>
+<tr>
+<td><code>simulator.rirs</code>, <code>simulator.results</code></td>
+<td>the responses returned by <code>scene.simulate</code>, or <code>scene.impulse_responses(method_name)</code>, <code>scene.get_impulse_response(source, receiver)</code></td>
+</tr>
+<tr>
+<td><code>Scene(simulation_platform=)</code>, <code>ImpulseResponse(simulation_platform=)</code></td>
+<td>removed; <code>ir.generation</code> names the method</td>
+</tr>
+<tr>
+<td><code>AcousticObjectsGroup</code>; <code>scene.iter_acoustic_objects()</code></td>
+<td><code>scene.add_acoustic_objects(shoebox_room(...))</code> (a list); <code>scene.acoustic_objects</code></td>
+</tr>
+<tr>
+<td><code>scene.acoustic_materials = {...}</code></td>
+<td><code>shoebox_room(materials=...)</code>, <code>AcousticObject.from_obj(path, materials=...)</code>: a material per object</td>
+</tr>
+<tr>
+<td><code>AcousticAnalyser.compute_rt</code>, <code>compute_clarity_definition</code>, <code>compute_drr</code>, <code>compute_sti</code>, <code>compute_stage_support</code>, <code>compute_strength</code></td>
+<td><code>reverberation_times</code>, <code>clarity_definition</code>, <code>direct_to_reverberant_ratio</code>, <code>speech_transmission_index</code>, <code>stage_support</code>, <code>sound_strength</code></td>
+</tr>
+<tr>
+<td><code>stage_acoustics.compute_ST1</code>, <code>compute_ST2</code>, <code>compute_G_stage</code>, <code>compute_ITDG</code></td>
+<td><code>Analyser.stage_support()</code></td>
+</tr>
+<tr>
+<td><code>Auraliser.multiconvolution()</code>, <code>Auraliser.convolve(ir, sound)</code></td>
+<td><code>Auraliser(...).convolve()</code>, in the format of the impulse responses</td>
+</tr>
+<tr>
+<td><code>Auraliser.decode_stereo_simple()</code>, <code>Auraliser.resample_signal()</code></td>
+<td>no decoder: binaural responses from <code>Binaural()</code>, ambisonic ones from <code>Ambisonics()</code> saved for a decoder elsewhere; <code>pyfar.dsp.resample</code></td>
+</tr>
+<tr>
+<td><code>Auraliser(output_format=...)</code></td>
+<td>removed: the signal has the format of its impulse responses, <code>Auraliser.format</code> (<code>mono</code>, <code>binaural</code> or <code>ambisonic</code>)</td>
+</tr>
+<tr>
+<td><code>sample_rate</code> (<code>ImpulseResponse</code>, <code>Auraliser</code>, <code>AudioPlayer.play</code>, <code>receivers_to_pra_mic_array</code>)</td>
+<td><code>sampling_rate</code></td>
+</tr>
+<tr>
+<td><code>pra_converter.material_to_pra</code>, <code>mesh_to_pra_wall</code>, <code>acoustic_object_to_pra_walls</code></td>
+<td><code>RoomGeometry.to_pra</code>, <code>compas_acoustics.room.pra.scene_to_pra_room</code></td>
+</tr>
+<tr>
+<td><code>Tools</code></td>
+<td>removed</td>
+</tr>
+<tr>
+<td><code>compas_acoustics.orchestra_layouts</code>; the Orchestra Layout component</td>
+<td>removed</td>
+</tr>
+<tr>
+<td><code>AcousticAnalyser</code></td>
+<td><code>Analyser</code></td>
+</tr>
+<tr>
+<td><code>Auraliser</code>, <code>AcousticAnalyser</code>, <code>MaterialsLibrary</code> as <code>Data</code></td>
+<td>plain classes: no <code>guid</code>, <code>copy()</code> or <code>compas.json_dumps</code></td>
+</tr>
+<tr>
+<td>Grasshopper: Simulate Ray Tracing, with a <code>sample_rate</code> input</td>
+<td>Simulate Mono; the rate is the <code>sampling_rate</code> input of Acoustic Scene</td>
+</tr>
+<tr>
+<td>Grasshopper: Analyse IR output STI</td>
+<td>no longer an output, with G: they need pyrato &gt;= 1.0</td>
+</tr>
+<tr>
+<td><code>Source</code> direction default +z; <code>shoebox_room(materials={'left_wall': ..., 'right_wall': ...})</code> with <code>left_wall</code> at y = 0</td>
+<td>direction default +x, as the Grasshopper Source component has it; <code>left_wall</code> is at y = width and <code>right_wall</code> at y = 0, the sides of a receiver at the centre facing +x (swap the two keys to keep a room)</td>
+</tr>
+<tr>
+<td><code>scene.simulate(hybrid)</code>, then <code>hybrid.binaural(hrtf)</code></td>
+<td><code>scene.simulate(Binaural(hrtf=...))</code>, stored under <code>'binaural'</code></td>
+</tr>
+<tr>
+<td><code>Hybrid()</code> returning ambisonic responses</td>
+<td><code>Ambisonics(sh_order=...)</code>, stored under <code>'ambisonics'</code>; the same <code>seed</code> gives both methods the same late field</td>
+</tr>
+<tr>
+<td><code>synthesize(...)</code>, <code>binaural_rir(result, hrtf, filters)</code></td>
+<td><code>core = prepare(...)</code>, then <code>render_ambisonics(core, sh_order, normalization)</code> or <code>render_binaural(core, hrtf)</code>: each delay line through its own HRIR</td>
+</tr>
+<tr>
+<td><code>ir.generation["output"]</code></td>
+<td><code>ir.format</code> (<code>'mono'</code>, <code>'binaural'</code> or <code>'ambisonic'</code>), read from the channels</td>
+</tr>
+<tr>
+<td><code>shape_late(late, early, reference, fs)</code></td>
+<td><code>shape_late(signals, early_w, late_w, reference, fs)</code></td>
+</tr>
+<tr>
+<td>Grasshopper: Simulate Ray Tracing output <code>ir_graph</code></td>
+<td>Simulate Mono output <code>mono_ir_graph</code></td>
+</tr>
+<tr>
+<td><code>compas_acoustics.worker.proxy()</code>, a <code>compas.rpc</code> server with COMPAS JSON and WAV files in temporary folders</td>
+<td><code>compas_acoustics.worker.client()</code>, an HTTP service with <code>compas_pb</code> payloads</td>
+</tr>
+<tr>
+<td>Grasshopper: the hybrid's <code>reference</code> given as a method name on the scene</td>
+<td>the <code>mono_ir_graph</code> wire of Simulate Mono only</td>
+</tr>
+<tr>
+<td>Installer input <code>worker</code> (<code>hybrid</code>)</td>
+<td>not used: the installer always sets up the worker</td>
+</tr>
+<tr>
+<td>Grasshopper: Simulate Hybrid output <code>ir_graph</code> (ambisonic)</td>
+<td>Simulate Binaural (<code>hrtf</code>, output <code>binaural_ir_graph</code>) and Simulate Ambisonics (the SH order dropdown, output <code>ambisonic_ir_graph</code>)</td>
+</tr>
+<tr>
+<td>Grasshopper: Plot 2D with <code>plane</code>, <code>x_size</code>, <code>y_size</code>, <code>settings</code> and text, point and polyline outputs</td>
+<td>Plot 2D draws its charts on the canvas: input <code>data</code> (a list), no outputs</td>
+</tr>
+<tr>
+<td>Grasshopper: Plot 2D Settings</td>
+<td>removed, with Plot 2D's geometry</td>
+</tr>
+<tr>
+<td>Grasshopper: Material Library's nested right-click menu</td>
+<td>a picker dialog with search and a chart, opened from the body or "Choose material..."</td>
+</tr>
+<tr>
+<td>Grasshopper: value lists and buttons placed next to new components</td>
+<td>controls drawn on the component body</td>
+</tr>
+<tr>
+<td>Grasshopper: Analyse IR input <code>time_scale</code></td>
+<td>right-click the <code>time</code> output: Time scale dB or linear</td>
+</tr>
+<tr>
+<td>Grasshopper: Auralise input <code>level</code>, Acoustic Object input <code>role</code>, Deconstruct Parameter input <code>select</code></td>
+<td>the switch on the body only</td>
+</tr>
+<tr>
+<td>Grasshopper: Room Scene</td>
+<td>Acoustic Scene (nickname Scene), the same inputs and output</td>
+</tr>
+<tr>
+<td>Grasshopper: Receiver input <code>plane</code></td>
+<td>removed: <code>position</code> and <code>direction</code>, the receiver upright (+z up)</td>
+</tr>
+<tr>
+<td>Grasshopper: Auralise inputs <code>save</code>, <code>save_file_path</code>, <code>save_file_name</code></td>
+<td>the Save button on its body: a dialog chooses the folder and the name</td>
+</tr>
+<tr>
+<td>Grasshopper: the Directivity component; Source input <code>directivity</code></td>
+<td>the <code>directivity</code> dropdown on Source</td>
+</tr>
+<tr>
+<td>Grasshopper: Audio Player input <code>normalize</code> (default True)</td>
+<td>the Norm toggle on its body, off by default</td>
+</tr>
+<tr>
+<td>Grasshopper: Audio Player inputs <code>play</code>, <code>stop</code>; Visualise Billiard output <code>t</code></td>
+<td>the Play, Pause and Stop buttons on the body; removed</td>
+</tr>
+<tr>
+<td>Grasshopper: Audio Player input <code>sampling_rate</code> (unused)</td>
+<td>removed: a signal carries its rate</td>
+</tr>
+<tr>
+<td>Grasshopper: Visualise Billiard input <code>speed</code> in ms of sound per second</td>
+<td>a factor of the default (the whole field in 10 s), the Speed dropdown 0.25x to 4x</td>
+</tr>
+<tr>
+<td>Grasshopper: Visualise Energy Map Play and Rewind</td>
+<td>removed: the map shows the levels</td>
+</tr>
+<tr>
+<td>Grasshopper: <code>ism_order</code> value list 0 to 6</td>
+<td>the ISM order slider, 0 to 10</td>
+</tr>
+<tr>
+<td>Grasshopper: Simulate Ambisonics input <code>sh_order</code> (1 to 3)</td>
+<td>the SH order dropdown on its body, 1 to 7</td>
+</tr>
+<tr>
+<td>Grasshopper: Acoustic Scene input <code>sampling_rate</code></td>
+<td>the Sampling rate dropdown on its body (44.1, 48, 96 kHz)</td>
+</tr>
+<tr>
+<td>Grasshopper: Simulate Mono input <code>time_thres</code></td>
+<td><code>duration</code>, the length of the responses, as <code>Mono(duration=)</code> names it</td>
+</tr>
+<tr>
+<td><code>RayField.from_scene(time_thres=)</code></td>
+<td><code>RayField.from_scene(duration=)</code></td>
+</tr>
+<tr>
+<td>Grasshopper: Visualise Energy Map inputs <code>n_rays</code>, <code>image_source_order</code>, <code>seed</code></td>
+<td>fixed: the rays from the room's volume, order 1, seed 42; the input <code>spacing</code> meshes the surface given</td>
+</tr>
+</tbody>
+</table>
+<p>The Grasshopper components are now a compiled plugin (<code>CompasAcoustics.gha</code>) instead of CPython script components: a definition saved
+with the old components does not open with the new ones. Delete the old components in it and place the new ones from the toolbar; they have
+the same names, inputs and outputs.</p>
+<h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Added <code>Scene.simulate(method)</code> as the one way to simulate, with the methods <code>Mono(image_source_order=3, ray_tracing=True, ...)</code>, <code>Binaural(...)</code> and <code>Ambisonics(...)</code> in <code>compas_acoustics.simulation_methods</code>.</li>
+<li>Added <code>Scene.sampling_rate</code> (default 48000, serialised with the scene), the rate at which every method runs; the Acoustic Scene component has the input.</li>
+<li>Added <code>Binaural</code> and <code>Ambisonics</code>, binaural and ambisonic room impulse responses from one hybrid engine: image sources, optional edge diffraction (<code>diffraction="udfa"</code> or <code>"btms"</code>) and a directional feedback delay network tail; needs Python &gt;= 3.11. <code>Binaural(hrtf=None)</code> takes <code>"kemar"</code> (the default) or a SOFA file and records it in <code>generation["hrtf"]</code>; <code>Ambisonics(sh_order=1, normalization="SN3D")</code> gives ACN channels. Responses are stored under <code>'binaural'</code> and <code>'ambisonics'</code>.</li>
+<li>Added <code>tail=...</code> to <code>Binaural</code> and <code>Ambisonics</code>, with a reference response, the method's own ray-traced reference, or an Eyring or Sabine prediction as decay target.</li>
+<li>Added edge diffraction at the edges of the room's own boundary (re-entrant corners) to the hybrid engine.</li>
+<li>Added <code>scattering=False</code> to <code>Binaural</code> and <code>Ambisonics</code>, surface scattering after Ewert et al. (2025): each image's specular part, the product of <code>sqrt(1 - s)</code> over its reflections, stays in the early field, and its scattered part, the product of <code>sqrt(s)</code>, enters the delay lines on its own hemisphere through an allpass cascade. Off by default.</li>
+<li>Added <code>compas_acoustics.hybrid.synthesis.prepare</code>, <code>compas_acoustics.hybrid.ambisonics.render_ambisonics</code> (with <code>ambisonic_output_matrix</code> and <code>default_num_delays</code>, moved from <code>hybrid.late</code>) and <code>compas_acoustics.hybrid.binaural.render_binaural</code> (<code>HrtfSet</code>): one format-neutral core per pair (its early paths and delay lines, <code>HybridCore</code>) and two renderers; the binaural one filters every path and every delay line with the HRIR measured nearest its direction. Each renderer evaluates every path's spectrum, and every UDFA transfer function, once, and applies the late envelope (<code>HybridCore.shaped_lines</code>) against its own omnidirectional channel.</li>
+<li>Added <code>HybridResult.late_lines</code> and <code>HybridCore.line_directions</code>: the late field per delay line before it is rendered, and each line's direction in the receiver frame.</li>
+<li>Added <code>Mono(ray_tracing=True)</code>, ray tracing on top of the image sources (<code>n_rays</code>, <code>energy_thres</code>, <code>duration</code>, <code>receiver_radius</code>, <code>seed</code>).</li>
+<li>Added <code>AirConditions(temperature=20, humidity=50, pressure=101325)</code>: speed of sound after Cramer (1993) and air absorption after ISO 9613-1, for every method, recorded in <code>ImpulseResponse.generation</code>.</li>
+<li>Added <code>RoomGeometry</code>, the scene's surfaces as one validated room (welded, outward oriented, closedness checked, coplanar faces merged), with <code>to_pra()</code> and <code>is_inside()</code>.</li>
+<li>Added <code>AcousticObject(role="boundary" | "obstacle")</code> and <code>AcousticObject.from_obj(path, materials=None)</code>, a list with one object per OBJ group, every one a boundary; groups <code>materials</code> does not cover have none until they are assigned, and <code>AcousticObject.material</code> accepts only an <code>AcousticMaterial</code> or <code>None</code>.</li>
+<li>Added <code>AcousticObject.assign_roles_by_group(objects, roles)</code> and <code>assign_materials_by_group(objects, materials)</code> to mark OBJ groups as obstacles and give them materials after reading, and <code>AcousticObject.group</code>, the OBJ group an object was read from (not serialised); a group name that none of the objects has raises a <code>ValueError</code>.</li>
+<li>Added <code>Receiver.up</code>, <code>rotation</code>, <code>frame</code> and <code>Receiver.from_frame()</code>: the orientation sets the axes of ambisonic responses (x facing, y left, z up).</li>
+<li>Added <code>compas_acoustics.room.diffuse</code> (<code>predicted_rt</code>, <code>mean_absorption</code>, <code>DiffuseFieldWarning</code>): Sabine and Eyring reverberation times.</li>
+<li>Added JSON serialisation (<code>compas.json_dumps</code>) for <code>Scene</code>, <code>AcousticObject</code>, <code>Source</code>, <code>Receiver</code>, <code>ImpulseResponse</code>, <code>Ray</code>, <code>ScatteredRay</code> and <code>RayField</code>; the IR graph is not serialised.</li>
+<li>Added <code>Scene.impulse_responses(attribute)</code>, <code>Scene.simulation_methods()</code> and <code>attribute=</code> on the IR graph methods: each method stores its responses under its own name.</li>
+<li>Added <code>ImpulseResponse</code> with peak normalization (<code>denormalized()</code>, <code>normalization_factor</code>, <code>level_db</code>), <code>to_wav()</code>, <code>from_wav()</code>, <code>generation</code>, <code>resampled()</code>, <code>ambisonic_order</code>, <code>normalization</code>, <code>channel_order</code> and <code>direct_sound_index()</code>.</li>
+<li>Added <code>Analyser.stage_support()</code> (ST_early and ST_late, ISO 3382-1 Annex C) and <code>sound_strength()</code> (G, needs pyrato &gt;= 1.0), and <code>G</code> in the analysis tables.</li>
+<li>Added <code>Analyser</code> accepting an <code>ImpulseResponse</code>, analysed at its raw level and sampling rate.</li>
+<li>Added <code>Auraliser.format</code> (<code>mono</code>, <code>binaural</code> or <code>ambisonic</code>, that of its impulse responses, which must share one), <code>level</code> (<code>relative</code>, <code>individual</code>, <code>none</code>), <code>headroom_db</code>, and lists of impulse responses and sound files as input.</li>
+<li>Added <code>RayField</code>, <code>Ray</code> and <code>ScatteredRay</code> for traced rays (<code>RayField.from_scene</code>), with filtering, truncation and viewer display.</li>
+<li>Added <code>Source.directivity</code>, <code>Source.sound_file</code> (the <code>Auraliser</code> mixes a multichannel file down to mono when it reads it), <code>Receiver.direction</code>, <code>radius</code> and <code>received_spls</code>.</li>
+<li>Added <code>AcousticMaterial.category</code> and <code>data_origin</code>, <code>MaterialsLibrary.materials_by_category</code>, preset materials, and <code>tools/import_backend_materials.py</code>.</li>
+<li>Added <code>AudioPlayer</code> for <code>.wav</code> files and numpy arrays, with <code>normalize=True</code>.</li>
+<li>Added <code>compas_acoustics.regularized_fitness</code>, exported from the package.</li>
+<li>Added a warning before an image source search that will take long (<code>simulation_methods.image_source_search_seconds()</code>).</li>
+<li>Added <code>compas_acoustics.worker</code>: runs compas_acoustics in a second Python 3.12, for the Grasshopper plugin and for Rhino 8's Python 3.9: a local HTTP service on a free port with a token per session that takes and returns <code>compas_pb</code> payloads (<code>client()</code>, <code>simulate</code>, <code>analyse</code>, and in <code>worker.api</code> the functions the components call).</li>
+<li>Added <code>compas_acoustics.pb</code>, a compas_pb plugin: the Data types as protobuf messages (<code>pb/protobuf_defs/.../acoustics.proto</code>), their Python bindings, converters registered through the <code>compas_pb.plugins</code> entry point, <code>SCHEMA</code> (which the plugin checks the worker against) and <code>plain()</code>; <code>compas_pb &gt;= 1.2</code> is a requirement. <code>invoke generate</code> regenerates the Python and C# bindings.</li>
+<li>Added <code>anechoic_soundfiles_library</code> (bassoon, female and male speech, viola) and <code>hrtfs_library</code> (KEMAR, free-field compensated, 48 kHz), with READMEs that credit the sources and licences.</li>
+<li>Added <code>Defaults.HRTF_LIBRARY_PATH</code>, <code>ANECHOIC_SOUNDFILES_LIBRARY_PATH</code> and <code>PARAM_NAMES</code>.</li>
+<li>Added <code>pyFDN</code> and <code>multislope</code> to the requirements on Python &gt;= 3.11, for the hybrid method (pyFDN brings flamo and PyTorch), and a CI job for it: one <code>pip install compas_acoustics</code>, no extra.</li>
+<li>Added the Grasshopper plugin <code>CompasAcoustics.gha</code> (C#, <code>src/compas_acoustics_ghcsharp/CompasAcoustics.sln</code>, <code>invoke build-gha</code>): typed parameters for the compas_acoustics data, value lists and buttons next to unconnected inputs, and the worker as the only Python it runs, so STI, G and the hybrid method are always available. It needs Rhino 8 and the .NET 8 SDK to build.</li>
+<li>Added the components Simulate Binaural and Simulate Ambisonics (with a <code>run</code> button, their last input), Simulate Mono (was Simulate Ray Tracing), Material Library categories, and the inputs <code>level</code> (Auralise), <code>normalize</code> (Audio Player, Simulate), <code>method</code> (Deconstruct IR Graph), <code>direction</code> and <code>plane</code> (Receiver, which outputs the receiver only and keeps it upright: +z up, no roll).</li>
+<li>Added the input <code>role</code> (a value list: <code>boundary</code> or <code>obstacle</code>) to the Grasshopper Acoustic Object component; a wrong role or material is an error on the component instead of a traceback.</li>
+<li>Added the IR graph of the Grasshopper plugin: Simulate Mono, Simulate Binaural and Simulate Ambisonics output the responses of their method (<code>pyroomacoustics</code>, <code>binaural</code>, <code>ambisonics</code>), and Deconstruct IR Graph reads them, so it has no <code>method</code> input.</li>
+<li>Changed the Grasshopper Check Channel component to count the channels of any sound: an audio file path, an impulse response, a Source with a sound file, or an array of samples such as the signals of Auralise (the input is now <code>sound</code>).</li>
+<li>Changed the Grasshopper Auralise component to also show the warnings of building the auraliser (impulse responses resampled to a common rate, sounds mixed down to mono), and the Audio Player to remark at which rate it plays an array that comes without one.</li>
+<li>Changed the image source order input of the Grasshopper Simulate Mono (<code>max_order</code>), Simulate Binaural and Simulate Ambisonics (<code>image_source_order</code>) components to <code>ism_order</code>; the Simulate Mono description gave the default as 6, the method's default is 3.</li>
+<li>Changed the order of the inputs of the Grasshopper Auralise component to <code>irs</code>, <code>anechoic_sounds</code>, <code>level</code>, <code>mix_sources</code>, <code>save_file_path</code>, <code>save_file_name</code>, <code>save</code>.</li>
+<li>Changed the Grasshopper Auralise component to keep the format of its impulse responses, without the inputs <code>output_format</code> and <code>hrtf</code>: mono responses (Simulate Mono) give mono signals, binaural ones binaural, ambisonic ones the undecoded ACN/SN3D signal, and the file saved has that many channels. Binaural signals come from Simulate Binaural and its <code>hrtf</code>. With <code>mix_sources</code>, responses of different formats at one receiver are an error. It convolves in Rhino's Python, without the worker.</li>
+<li>Changed the Grasshopper Audio Player component to warn for a signal of more than two channels (an ambisonic one) instead of an error, and <code>AudioPlayer.play_array</code> to play a mono signal on both channels.</li>
+<li>Renamed the input <code>sound</code> of the Grasshopper Audio Player component to <code>audio</code> and ordered its inputs <code>audio</code>, <code>sampling_rate</code>, <code>normalize</code>, <code>play</code>, <code>stop</code>.</li>
+<li>Renamed the inputs <code>signals</code> and <code>multiconvolve</code> of the Grasshopper Auralise component to <code>anechoic_sounds</code> and <code>mix_sources</code>: <code>mix_sources</code> sums the sources at each receiver into one signal.</li>
+<li>Changed the order of the inputs of the Grasshopper Source component to <code>position</code>, <code>name</code>, <code>direction</code>, <code>directivity</code>, <code>sound_file</code>.</li>
+<li>Changed <code>AudioPlayer</code> to read the audio devices again before it plays an array, so that headphones connected after Rhino started are the output.</li>
+<li>Added the input <code>select</code> (a value list: <code>all</code> or one of EDT, T20, T30, C50, C80, D50, DRR, Ts, STI, G) to the Grasshopper Deconstruct Parameter component: a selected parameter comes out as plain lists, <code>all</code> as one branch per parameter. Its <code>parameters</code> input takes the list.</li>
+<li>Renamed the Grasshopper Simulate Pyroomacoustics component to Simulate Mono, after the method it runs, <code>Mono</code> (pyroomacoustics; graph attribute and worker method <code>'mono'</code>, <code>'data'</code> as before) (the same GUID: saved definitions load it) and its output <code>ir_graph</code> to <code>mono_ir_graph</code>, after the format of its responses, as Simulate Binaural's <code>binaural_ir_graph</code> and Simulate Ambisonics' <code>ambisonic_ir_graph</code>.</li>
+<li>Added the input <code>source_idx</code> to the Grasshopper Deconstruct IR Graph component (inputs <code>ir_graph</code>, <code>source_idx</code>, <code>receiver_idx</code>): with <code>receiver_idx</code> it picks source-receiver combinations, e.g. a single impulse response for Analyse Impulse Response. Sources are indexed in the order of the scene's sources; an index out of range is a warning.</li>
+<li>Added <code>compas_acoustics.analyser.time_response</code> (level in dB re the peak of all channels, or amplitude) and <code>frequency_response</code> (fractional-octave smoothed, in dB re the peak), per channel; levels are floored 100 dB below the peak.</li>
+<li>Added the outputs <code>time</code> and <code>frequency</code> and the input <code>time_scale</code> (a value list: <code>db</code> or <code>linear</code>) to the Grasshopper Analyse Impulse Response component: the impulse response and its 1/3-octave smoothed frequency response from 20 Hz to 20 kHz, of the W channel of an ambisonic response and both ears of a binaural one. Plot 2D draws them as a curve per channel, on a time axis or a log frequency axis with ticks at 50, 100, 200, 500 ... 20000 Hz, reduced to the minimum and maximum of 1000 bins; a level in dB runs from its floor on the x axis to its peak, an amplitude is symmetric about zero with the x axis at zero. The time output in <code>linear</code> ends 5 % after its Schroeder curve falls 60 dB, in <code>db</code> it is the whole response, (<code>time_response(..., trim_db=...)</code>); the parameters and the frequency output use the whole response. <code>AcousticParameter.from_time_response</code> and <code>from_frequency_response</code> replace <code>from_ir</code>, which Plot 2D could not draw.</li>
+<li>Renamed the output <code>params</code> of the Grasshopper Analyse Impulse Response component to <code>parameters</code>, and the input <code>param</code> of Deconstruct Parameter to <code>parameters</code>.</li>
+<li>Renamed the input <code>param</code> of the Grasshopper Plot 2D component to <code>data</code>: it takes a parameter, or the time or frequency output of Analyse Impulse Response.</li>
+<li>Changed the <code>hrtf</code> input of the Grasshopper Simulate Binaural component to get no value list: empty is KEMAR, the HRTF... button on the body chooses the user's own SOFA set (right-click "Use KEMAR" goes back), and a File Path connected to it wins; the component's message names the set in use.</li>
+<li>Changed the <code>seed</code> input of the Grasshopper Simulate Mono, Simulate Binaural and Simulate Ambisonics components: left empty, each run draws a new random seed (shown in the component's message) instead of the methods' fixed default 42; a number gives repeatable responses. <code>Mono</code>, <code>Binaural</code> and <code>Ambisonics</code> themselves still default to 42.</li>
+<li>Added a warning to the Grasshopper Simulate Binaural and Simulate Ambisonics components when <code>tail</code> is <code>reference</code> and nothing is connected to <code>reference</code>; it shows before Run, and Run does not start the simulation.</li>
+<li>Added the output <code>parameter</code> to the Grasshopper Deconstruct Parameter component: the selected AcousticParameter, which Plot 2D plots and a panel prints (<code>AcousticParameter.__str__</code> gives the name, unit, value per band and overall value).</li>
+<li>Added STI and G to the Grasshopper Analyse IR component, computed in the worker (they need pyrato &gt;= 1.0, which Rhino 8's Python 3.9 cannot install); G only for a simulated response.</li>
+<li>Changed the Grasshopper Plot 2D chart to leave half a band's spacing between the y axis and the first frequency band.</li>
+<li>Changed <code>compas_acoustics.worker.simulate</code> to store every format of a run on the scene's graph under its attribute and return the first, as <code>Scene.simulate</code> does; it used to store whatever came back under the method's name.</li>
+<li>Added a status to the Grasshopper Simulate Binaural and Simulate Ambisonics components for when they are not running: it says <code>done</code> with the tail (and the ambisonic order) of the last result on the graph, <code>settings changed, press Run</code> when its inputs differ from that result, and <code>press Run</code> only when there is none.</li>
+<li>Added the Grasshopper installer for Rhino 8 (<code>installer/compas_acoustics_installer.gh</code>), <code>invoke installer-bundle</code>, and <code>compas-dev/compas-actions</code> v1 workflows (build, release, <code>prepare release</code>), with tests on Python 3.9.</li>
+<li>Changed the example scripts' names: <code>demo.py</code> is <code>shoebox.py</code>, <code>demo_obj.py</code> is <code>obj.py</code>, <code>demo_rays.py</code> is <code>rays.py</code>, <code>demo_scattered_rays.py</code> is <code>scattered_rays.py</code>; added <code>specular_reflections.py</code>.</li>
+<li>Changed the example script <code>shoebox.py</code> to <code>simple_simulation_shoebox.py</code>; its Grasshopper twin is <code>examples/simple_simulation_shoebox.ghx</code>.</li>
+<li>Added the documentation for the first public release: concepts, installation, a Python and a Grasshopper track, a Grasshopper component reference generated from the plugin's specs (<code>docs/_ext/ghcomponents</code>, also run by <code>invoke docs-components</code>), and build checks that fail when the committed images in <code>docs/_images/</code> are out of date.</li>
+<li>Added a getting-started section to the README, and <code>Examples</code> sections that <code>invoke testdocs</code> can run in the docstrings of <code>Scene</code>, <code>Mono</code>, <code>Binaural</code>, <code>Ambisonics</code>, <code>Analyser</code> and <code>Auraliser</code>.</li>
+<li>Added <code>SpecularReflections.from_scene(scene, max_order=3)</code>, the image-source paths from each source to each receiver for inspection, with <code>filter(source, ray_index, receiver_index, order)</code>. It is a <code>RayField</code> of <code>SpecularPath</code> rays, so it plays in a billiard (<code>particles</code>) and displays like traced rays.</li>
+<li>Added source directivity to <code>RayField.from_scene</code>, and so to Visualise Rays and Visualise Billiard: each source emits its rays with the density of its radiated energy, (p + (1 - p) cos theta)^2 about its <code>direction</code> (a deterministic lattice; a cardioid sends nothing straight back, a figure-of-eight nothing sideways); within a spotlight cone the cone's lattice is thinned to that density. An omnidirectional source emits the same rays as before.</li>
+<li>Added <code>RayField.particles(time_ms)</code> and <code>RayField.duration_ms</code>, the rays' positions at a time, for a billiard view.</li>
+<li>Added a directional ray-tracing histogram to the hybrid's late envelope (<code>late_envelope=True</code> of <code>Binaural</code> and <code>Ambisonics</code>, the default with a reference or ray-tracing tail): pyroomacoustics keeps one histogram per receiver direction (<code>raytracing.directional_histograms</code>, one bin per delay line, binned by the direction a ray arrives from; Lentz, Schroeder and Vorlaender 2007; Schroeder 2011, Sec. 5.3.4), and after the level per band follows the reference, each delay line is scaled by the square root of its direction's share of the rays' energy over its share of the lines' energy (<code>hybrid.envelope.directional_shares</code>, <code>shape_late_directional</code>), both pooled over neighbouring lines with the weights of Kirsch et al. (2023, Eq. 4), so the total is kept and a direction facing an absorbing wall decays as the rays say it does; the shares are held once the rays have decayed 60 dB. The histogram is traced by the method itself, also with a given reference: one more ray-tracing run per scene. The omnidirectional level and decay are unchanged.</li>
+<li>Added the Grasshopper Visualise Reflections component: image-source paths of a source-receiver pair by order, output as <code>reflections</code>, which Visualise Billiard plays.</li>
+<li>Added the Grasshopper Visualise Rays component: rays traced from one source (<code>source_idx</code>) or all, for display and Visualise Billiard.</li>
+<li>Added the Grasshopper Visualise Billiard component: the rays of a ray field as particles (points only) at a time, played with a button or scrubbed with a slider.</li>
+<li>Added colours by reflection order to Visualise Reflections, Visualise Rays and Visualise Billiard: each component draws its paths, ray segments or particles itself (round particles, order 0 black, one colour per order); <code>RayField.particles</code> returns each particle's reflection order too.</li>
+<li>Added controls on the Grasshopper component bodies: switches and dropdowns under a title naming their input (Tail, Role), showing the chosen value; Simulate Binaural and Simulate Ambisonics <code>tail</code>, <code>diffraction</code> and <code>run</code> and Visualise Billiard <code>play</code> keep inputs, hidden on a new component and shown by "Show control inputs" in the right-click menu (a wired one always shows) for parameter studies; Auralise's level, Acoustic Object's role, Deconstruct Parameter's select and Source's directivity are chosen on the body only; Analyse IR's time scale on its <code>time</code> output's right-click menu; buttons (Run, Cancel; Play, reading Pause while playing (Play goes on from the paused frame), and Rewind on Visualise Billiard and Visualise Rays, whose rays are drawn only as Play makes them grow with the sound; a Preview toggle on the three Visualise components, which draw themselves and not their outputs). A wired value wins and greys the control; every choice is saved with the document; a control's tooltip says what its input means and its default.</li>
+<li>Added body controls for the remaining choices of the Grasshopper components, each hidden behind "Show control inputs" like the others and starting at its input's default: the ISM order slider (whole orders 0 to 10, set when the knob is let go) on Simulate Mono, Simulate Binaural and Simulate Ambisonics; toggles and buttons set as far from the control above as a title is; on/off toggles sharing a row, Ray tracing, Air and Normalize on Simulate Mono, Late envelope and Normalize on the hybrid ones; the SH order dropdown (1 to 7, default 1) on Simulate Ambisonics, a choice of the component without an input; the sampling rate dropdown (44.1, 48, 96 kHz, default 48) on Acoustic Scene, a choice of the component without an input; Mix sources on Auralise; the Sound file... button on Source (its file's name on the button, right-click "Clear sound file"); the category dropdown on Construct Material; Source and Receiver dropdowns (All, or each by its index and name, from the wired scene or graph) on Visualise Rays, Visualise Reflections, Visualise Energy Map and Deconstruct IR Graph; Scattering and a slider of the drawn reflection order on Visualise Rays; the reflection orders 0 to 4 on Visualise Reflections, several lit at once; the time slider (it follows playback, and the particles follow the knob while it is dragged) and the Speed dropdown on Visualise Billiard; Play/Stop and Rewind side by side as icon buttons on Visualise Rays and Visualise Billiard; the Frequency bands dropdown (Full (A-weighted), or 125 Hz to 8 kHz) on Visualise Energy Map, its input renamed <code>frequency_bands</code> (was <code>band</code>). Controls on integer, number and bool inputs keep their values hidden and in the file, as text ones did.</li>
+<li>Added the Audio Player's waveform, and impulse responses as its input (e.g. the <code>ir</code> output of Deconstruct IR Graph): the transport and volume right of the icon and below the inputs a lane per channel across the whole component, at one height, the component growing down with the channels, a Play/Pause and a Stop button with their usual glyphs, a playhead, Play, Pause, Stop, seeking by a click on the waveform, a volume slider, and a body that resizes.</li>
+<li>Added runs that do not block the canvas: Simulate Mono, Simulate Binaural, Simulate Ambisonics, Analyse IR, Auralise, Visualise Rays and Visualise Reflections call the worker on a background thread, keep their last outputs meanwhile, show <code>running m:ss</code> and the worker's stage, and offer Cancel; a change of inputs cancels the run and starts another (Simulate Binaural and Simulate Ambisonics wait for Run).</li>
+<li>Added viewport previews of sources (a loudspeaker: a cube turned with the source and a driver on its front face, the direction, the directivity lobe), receivers (a head: a sphere with its ears, the facing), acoustic objects and scenes (their edges only, as Rhino draws a surface's: outlines and folds, not the triangulation; no surfaces over the Rhino geometry they come from; obstacles with orange edges). IR graphs draw nothing. The Acoustic Object's message gives its total area, the Acoustic Scene's the room's volume and total area on two lines, its tooltip also the objects, sources, receivers and sampling rate. Sources and receivers are drawn only by the Source and Receiver components, under their preview toggles: not again by a scene, by Deconstruct IR Graph (which previews nothing, its source-to-receiver <code>edges</code> included), or by a Merge or Data they pass through. Components preview only their outputs, not the geometry, points or planes wired into them; Acoustic Object and Acoustic Scene start with their preview off, their surfaces being in Rhino already. Every component is drawn light and offers Preview, also those with nothing to draw (Grasshopper would draw them in the dark preview-off grey); those draw nothing: every output has a type (text, number, integer, point), none the generic one that draws whatever passes through it.</li>
+<li>Added defaults and named values on the Grasshopper ports (<code>ism_order</code> 3, <code>n_rays</code> 20000 and 500, <code>max_order</code> 10, <code>energy_thres</code> 1e-7, <code>k</code> 1.0, <code>sampling_rate</code> 48000), and the scene's sources and receivers as named values of <code>source_idx</code> and <code>receiver_idx</code>.</li>
+<li>Added the material picker (search, Custom above the categories, Name, Category and Origin, a chart of absorption and scattering on which a click or drag sets a band, and a box per band for each to type a value, of a library material or of a custom one whose name and category are editable), opened from the Material Library's strip or by a double-click on it; its inputs <code>absorption</code> and <code>scattering</code> replace the chosen coefficients; its strip, sized as Deconstruct Parameter's, draws absorption and scattering as the picker's paired bars over the bands, 0 and 1 beside; its message says when scattering is the 0.05 default; a custom material left without absorption warns. A material's tooltip gives its mean absorption.</li>
+<li>Added Plot 2D on the canvas: a chart per parameter, a dot per band joined by a line or a line per channel, resizable at a fixed aspect ratio, STI on a 0 to 1 axis and the reverberation times (EDT, T20, T30) from 0, with the values under the mouse in the tooltip and a Save button that writes the charts as a PNG; Deconstruct Parameter shows its bands as a small line chart, the bands below and the lowest, middle and highest value beside.</li>
+<li>Added the Worker component (state, Python, version and schema, Restart, Open log), "Open worker log" in every component's menu, the worker's log file, and message strips of at most 40 characters with the whole text in the tooltip; Acoustic Scene's message counts objects, sources, receivers, the rate and the volume.</li>
+<li>Added one generated icon set for the components (<code>tools/icons.py</code>).</li>
+<li>Added the worker routes <code>POST /cancel/&lt;call id&gt;</code> and <code>GET /progress/&lt;call id&gt;</code> and the request header <code>X-Call-Id</code> (<code>compas_acoustics.worker.jobs</code>); a cancelled call answers 499.</li>
+<li>Added LF and LFC (ISO 3382-1 early lateral energy fractions) to <code>Analyser.analyse()</code>, Analyse IR and Deconstruct Parameter, from the first-order channels of an ambisonic response.</li>
+<li>Added <code>Source.spl</code> as the source's level (SPL on axis at 1 m, per band; one value or seven) and SPL per band with its A-weighted total to <code>Analyser</code> (<code>sound_pressure_level</code>, <code>analyse</code>) and Analyse IR.</li>
+<li>Added the <code>spl</code> input to the Grasshopper Source component (the source's level at 1 m per band, or one value).</li>
+<li>Added <code>EnergyMap</code> (<code>compas_acoustics.EnergyMap</code>): the SPL of a scene's sources over many points, per band, A-weighted and over time, from pyroomacoustics' ray tracer with a microphone per point plus first-order image sources, and the worker's <code>energy_map</code>.</li>
+<li>Added the Visualise Energy Map component: a surface (a mesh, a surface or a Brep, meshed into faces no larger than <code>spacing</code>, default 0.25 m; the rays keep a 1 m grid) coloured by the full A-weighted or one band's SPL at its face centres (the Frequency bands dropdown), drawn a centimetre above the surface so that the two do not flicker. Its settings are fixed: image sources up to order 1, seed 42, and the rays of <code>energy_map.map_rays</code>, Vorlaender's (2008) Eq. 11.12 over the response length for 16000 hits per point (20000 to 250000 rays). <code>EnergyMap.from_scene(n_rays=None)</code> uses the same count. The rays are traced to one receiver per 1 m cell of the map (<code>ray_spacing=1.0</code>, the cell's point nearest its centre) and their energy is interpolated to the other points by inverse squared distance; the image sources stay exact at every point. pyroomacoustics checks every receiver for every ray segment, so fewer receivers trace faster, and none lies partly outside the room next to a wall. The worker's <code>energy_map</code> takes no <code>n_rays</code>, <code>image_source_order</code> or <code>seed</code>, returns the rays traced as <code>n_rays</code>, and returns no frames of the energy arriving; <code>EnergyMap.frames()</code> gives them.</li>
+</ul>
+<h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Changed the worker's playback API: <code>play(sound, normalize=True, gain_db=0.0, start=0.0)</code> returns the duration; <code>pause</code>, <code>resume</code>, <code>stop</code>, <code>playback_status</code> and <code>sound_samples</code> are new.</li>
+<li>Changed how the hybrid's early renderer and late envelope compute, not what: <code>early.render_images</code> and <code>render_transfers</code> accumulate the paths' spectra as matrix products over chunks of paths instead of one outer product per path, and <code>envelope.octave_band_split</code> applies pyfar's reconstructing bank as one FFT per channel and one inverse FFT per band (zero-padded past the filter length, the linear convolution pyfar computes) with the bank designed once per sampling rate. Responses are unchanged to rounding.</li>
+<li>Changed <code>Analyser.speech_transmission_index</code> to reduce the modulation transfer function it already has with pyrato's <code>_sti_calc</code> (IEC 60268-16:2020 Annex A.2.1) instead of calling <code>speech_transmission_index_indirect</code>, which computes the same MTF again; without <code>_sti_calc</code> the indirect method is called.</li>
+<li>Changed the ray tracer's defaults: <code>energy_thres</code> 1e-7 (pyroomacoustics' own), since <code>libroom</code> stops a ray on the product of its wall reflections while the receiver logs that energy over the squared distance; and <code>duration</code> 1.5 times the longest Eyring reverberation time within 0.5 to 12 s. The runs <code>Binaural</code> and <code>Ambisonics</code> make themselves, a ray-traced reference and the directional histogram, take the same default. A reference shorter than 2/3 of its reverberation time warns, since pyFDN's decay fit shrinks its range to what the response has. A ray-traced response that ends before 2/3 of its own longest T30 warns with the length to rerun with: a room whose absorption is concentrated on a few surfaces can decay far slower than Eyring predicts. A room whose Eyring prediction hits the 12 s cap also warns (<code>raytracing.default_duration</code>): its rays live for hundreds of reflections, usually from a material with no low-frequency absorption on a large surface.</li>
+<li>Changed the JSON data type of every <code>compas_acoustics</code> class to <code>compas_acoustics/&lt;ClassName&gt;</code> (was <code>compas_acoustics.&lt;module&gt;/&lt;ClassName&gt;</code>), so that saved data no longer depends on the module a class lives in; the materials library is stored that way. Files saved before do not load.</li>
+<li>Changed the modules: <code>ray</code> and <code>specular</code> are one module, <code>rays</code>; <code>acoustic_material</code> and <code>materials_library</code> are <code>materials</code>; <code>geometry</code> is <code>acoustic_object</code>; <code>numerical.fitness</code> is <code>fitness</code>; <code>room_geometry</code>, <code>air</code>, <code>diffuse</code>, <code>pra_converter</code>, <code>raytracing</code> and <code>_pyfar_constants</code> are the subpackage <code>room</code> (<code>room.geometry</code>, <code>room.air</code>, <code>room.diffuse</code>, <code>room.pra</code>, <code>room.raytracing</code>, <code>room._pyfar_constants</code>), which exports <code>RoomGeometry</code> and <code>AirConditions</code>; <code>room.raytracing</code> holds both pyroomacoustics runs (<code>image_source_rirs</code>, <code>ray_traced_rirs</code>) and the directional histograms, the backend of <code>Mono</code> and of the binaural and ambisonics methods; <code>binaural</code> is <code>hybrid.binaural</code>. The classes are exported from <code>compas_acoustics</code> as before.</li>
+<li>Changed <code>Defaults().DEFAULT_SPEED_OF_SOUND</code> to the speed of sound of <code>AirConditions()</code> (343.98 m/s at 20 C and 50 %, was 343), the air every simulation runs in without one given. <code>Ray</code>, <code>ScatteredRay</code> and <code>RayField</code> no longer take or store a <code>sound_speed</code> (it was 343 on its own and was serialised with every ray): their travel times are at this default; ray fields saved with it still load.</li>
+<li>Changed the hybrid engine to use 96 delay lines up to third ambisonic order, and always for <code>Binaural</code> (<code>hybrid.late.MIN_DELAYS</code>): the count Kirsch, Wendt and van de Par (2023) run their network with whatever the number of rendered directions, so that the tail's character does not change with the count, and the one they name for offline simulation. In the binaural response each line is heard through its own HRIR. The methods take no <code>num_delays</code> or <code>drive_gain</code>: the count follows from <code>sh_order</code> (<code>Ambisonics</code>) or is 96 (<code>Binaural</code>), and the input gain <code>sqrt(num_delays)</code> offsets the output's <code>1 / sqrt(num_delays)</code>, so the late level does not depend on the count; <code>hybrid.synthesis.prepare</code> keeps both. The delay-line grid depends on the count alone (<code>fdn_directions(num_delays)</code>); whether it carries an ambisonic order is <code>ambisonic_output_matrix</code>'s check.</li>
+<li>Changed how the last rendered image-source order drives the hybrid's network: each image enters the delay lines of the hemisphere opposite its arrival, weighted by the cosine to each line (<code>hybrid.scattering.scattering_weights(..., opposite=True)</code>), the mapping of Ewert et al. (2025, Sec. 3.1.2).</li>
+<li>Changed the spelling of identifiers to <code>normalization</code> and <code>normalized</code> everywhere, including <code>ImpulseResponse.normalization</code> (the ambisonic convention) and its JSON metadata key.</li>
+<li>Changed <code>AudioPlayer</code> to raise errors and <code>warnings.warn</code> instead of printing them; the Audio Player component shows them as messages. An unsupported sound type raises a <code>TypeError</code>.</li>
+<li>Changed <code>seed</code> of <code>Mono</code>, <code>Binaural</code> and <code>Ambisonics</code> (was 0) to <code>True</code> by default, which seeds with 42 (<code>DEFAULT_SEED</code>); an int seeds with that value; <code>False</code> (or <code>None</code>) leaves the run unseeded, a new draw each run, recorded as <code>generation["seed"] = None</code>. Anything else raises a <code>ValueError</code>. <code>RayField.from_scene(random_seed=)</code> follows the same rule.</li>
+<li>Changed the hybrid engine to drive the network with the last rendered image source order, as Wendt et al. (2014) and Ewert et al. (2025) do. The search stops at <code>image_source_order</code>.</li>
+<li>Changed <code>Binaural</code> and <code>Ambisonics</code> without a reference to run <code>Mono(ray_tracing=True, image_source_order=3, n_rays=100000, seed=42)</code> and fit the decay to it.</li>
+<li>Changed the hybrid's 35 Hz high-pass to a causal filter, which removes pre-arrival ringing in the diffracted paths.</li>
+<li>Changed every simulation to run in <code>AirConditions()</code> (20 C, 50 %, 343.98 m/s) unless <code>air=</code> is given; before, the methods used different air tables.</li>
+<li>Changed simulated impulse responses to 48000 Hz (were always 16000 Hz) and to the package scale (free-field direct sound <code>1 / (4 pi r)</code>).</li>
+<li>Changed <code>AcousticObject.__init__</code> to take one <code>material</code>; <code>AcousticObjectsLibrary.shoebox_room()</code> returns a list of six single-material objects and takes <code>materials</code>.</li>
+<li>Changed <code>Source.directional</code> to <code>Source.directivity</code>, and <code>Source.direction</code> and <code>Receiver.direction</code> to <code>compas.geometry.Vector</code>.</li>
+<li>Changed <code>sample_rate</code> to <code>sampling_rate</code> everywhere: <code>ImpulseResponse</code>, <code>Auraliser</code>, <code>AudioPlayer.play</code>, <code>receivers_to_pra_mic_array</code>, <code>HrtfSet</code> and the Grasshopper components.</li>
+<li>Changed the <code>Analyser</code> methods to name the quantity: <code>reverberation_times</code>, <code>clarity_definition</code>, <code>direct_to_reverberant_ratio</code>, <code>speech_transmission_index</code>, <code>stage_support</code>, <code>sound_strength</code>.</li>
+<li>Changed the analyser to apply octave filters zero-phase or after cutting the time windows, which removes a delay of 18 ms at 250 Hz and 35 ms at 125 Hz from EDT, Ts, C50, C80, D50 and DRR.</li>
+<li>Changed <code>direct_to_reverberant_ratio</code> to 5 ms of direct sound, <code>DRR_overall</code> from a 700-4000 Hz band.</li>
+<li>Changed <code>reverberation_times</code> to Schroeder integration without noise compensation; truncate a measured response with a noise floor before analysing it.</li>
+<li>Changed the direct sound detection to the start of ISO 3382-1: the last sample more than 20 dB below the maximum before it.</li>
+<li>Changed <code>Auraliser.convolve()</code> to return the signal in the format of its impulse responses, without decoding, summing the impulse responses of one sound first.</li>
+<li>Changed <code>Auraliser</code> to auralise at the raw level, export peak at -1 dBFS, and use an impulse response's own <code>channel_order</code> and <code>normalization</code>.</li>
+<li>Changed <code>Auraliser</code> to read and resample with pyfar (polyphase) and to default to the rate of the first impulse response.</li>
+<li>Changed <code>Analyser</code>, <code>Auraliser</code> and <code>MaterialsLibrary</code> to plain classes; they are services, not data.</li>
+<li>Changed the default HRTF to <code>KEMAR_FreeFieldComp_48kHz.sofa</code>.</li>
+<li>Changed a material without scattering coefficients to scatter 0.05 in every band in every pyroomacoustics simulation.</li>
+<li>Changed <code>AcousticMaterial</code> so that a coefficient of 0 is a value, and material names may have spaces and capitals; library files are named by <code>AcousticMaterial.slug</code> and carry no backend suffix.</li>
+<li>Changed sources and receivers outside the room to raise a <code>UserWarning</code>, and surfaces with <code>role="obstacle"</code> to reflect from both sides.</li>
+<li>Changed <code>Scene.acoustic_materials</code> to read-only; assigning it raises an <code>AttributeError</code> that says how materials are assigned.</li>
+<li>Changed the hybrid engine to accept <code>diffraction</code> without obstacles, and to report non-closed obstacle components in one warning per call.</li>
+<li>Changed the package to run on Python 3.9 (Rhino 8) without Rhino, Grasshopper or .NET; the Grasshopper plugin is in <code>src/compas_acoustics_ghcsharp/</code>.</li>
+<li>Changed <code>pyrato &gt;= 1.0</code> to be required from Python 3.11 (was 3.12), and removed the upper bounds on pyroomacoustics and pyFDN.</li>
+<li>Changed the Analyse IR component to leave out STI and G, which need pyrato &gt;= 1.0; they stay in <code>Analyser</code> where pyrato allows.</li>
+<li>Changed <code>matplotlib</code> to be imported by the <code>Analyser</code> plot methods only when they run.</li>
+<li>Changed the Grasshopper installer to copy the plugin (the bundle's <code>gha/</code> folder) into Grasshopper's Libraries folder, remove the CPython components of earlier versions, and always set up the worker; its <code>worker</code> input is not used.</li>
+<li>Changed <code>librosa</code> out of the dependencies and <code>sounddevice</code> into them; <code>spharpy</code> is required on Python &gt;= 3.11.</li>
+<li>Changed <code>RoomGeometry</code> to weld vertices at 1 mm (<code>WELD_TOLERANCE</code>, was 1 micrometre), as Rhino's tolerance in a metre model: a wall corner 10 micrometres off no longer leaves the room open. A vertex still lies on an edge only within 1e-6 of the model's extent. Faces with a corner more than 10 micrometres off their plane are triangulated (pyroomacoustics raised a <code>RuntimeError</code> on them), faces that collapse in welding are dropped with a warning, a model more than 500 units across warns that coordinates are read as metres, and a wall pyroomacoustics refuses is a <code>ValueError</code> naming the face.</li>
+<li>Changed <code>AcousticObject.from_obj</code> to read OBJ files with its own parser: <code>o</code> (object) lines are the groups of a file without <code>g</code> lines, faces may use <code>i/j/k</code> and negative indices, vertices are no longer rounded (<code>RoomGeometry</code> welds them), and faces with fewer than three distinct vertices are skipped.</li>
+<li>Changed the default <code>Source</code> direction to +x (was +z), the direction the Grasshopper Source component already defaults to and the receiver's facing direction.</li>
+<li>Changed <code>AcousticObjectsLibrary.shoebox_room</code> so that <code>left_wall</code> is the surface at y = width and <code>right_wall</code> the one at y = 0, matching the receiver frame (x facing, y left); the two names were swapped. The surfaces come in the order floor, right, front, left and back wall, ceiling.</li>
+<li>Changed the error of <code>Receiver</code> for a name with spaces or capitals to say <code>Receiver</code> (it said <code>Source</code>).</li>
+<li>Changed <code>RoomGeometry.surfaces</code>, <code>surface_area</code>, <code>area_normals</code> and <code>volume</code> to count the air side only: a closed obstacle counts one side and its volume is subtracted, and obstacle faces lying on the boundary are left out, so Eyring and Sabine times, the default ray-tracing duration and the hybrid's delays and scattering decay time move in scenes with closed obstacles or obstacles on the boundary; a free panel still counts both sides.</li>
+<li>Changed <code>AcousticMaterial</code> to validate coefficients on creation: any iterable (including Grasshopper's <code>List[Double]</code>) and scalars become lists of float, a single value (a scalar or a one-element list) applies to every band, an empty list means no coefficients, and another length than 7 or a value outside [0, 1] raises <code>ValueError</code>.</li>
+<li>Changed the hybrid's binaural late field to be rendered per delay line, each line <code>/ sqrt(N)</code> through the HRIR measured nearest its direction, so a binaural response does not need <code>sh_order &gt;= 1</code>.</li>
+<li>Changed <code>hybrid.late.render</code> to return the delay lines' outputs, <code>(n, num_delays)</code>, after the directional absorption and slope weights; the ambisonic late field is that times <code>C.T</code>.</li>
+<li>Changed the format of a response to come from its channels, <code>ImpulseResponse.format</code> (<code>'mono'</code>, <code>'binaural'</code> for two channels without an ambisonic order, <code>'ambisonic'</code>), not a <code>generation["output"]</code> flag; the Auraliser, the analysis plots and the Grasshopper Audio Player read it.</li>
+<li>Filled in the package metadata, README and documentation for the first public release, and removed the tests that compared against external toolboxes, saved outputs or a running worker.</li>
+<li>Changed the component specs (<code>Specs/&lt;CA_name&gt;/metadata.json</code>) to list their ports under <code>ports</code>.</li>
+</ul>
+<h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fixed <code>raytracing.directional_histograms</code> failing with "all input arrays must have the same shape" when the run is longer than pyroomacoustics' default 10 s and rays are still alive then: <code>libroom</code> sizes every direction's histogram for 10 s and doubles only the directions hit later. The hybrid's late envelope failed this way on a reverberant room whose Eyring buffer reached 12 s.</li>
+<li>Fixed the Grasshopper Acoustic Scene component failing with <code>'NoneType' object has no attribute 'sources'</code> when an object is empty or not an acoustic object (an upstream Acoustic Object that failed): such items are left out with a warning.</li>
+<li>Fixed <code>RoomGeometry</code> taking a vertex up to 1 mm off an edge for a T-junction, which left rooms with sliver faces open: the edge test is 1e-6 of the model's extent again.</li>
+<li>Fixed the single-number values of C50, C80, D50 and Ts averaging 500, 1000 and 2000 Hz: they average 500 and 1000 Hz, as ISO 3382-1:2009 Table A.1 has it for G, EDT, C80, D50 and Ts (C50 follows D50), like EDT, T20 and T30 already did.</li>
+<li>Fixed responses simulated in the worker (the hybrid in Rhino) always coming back as peak-normalized views: they keep the method's <code>normalize</code>. Their raw level was already kept.</li>
+<li>Fixed the Grasshopper Material Library component forgetting its material when the file is reopened: the choice is kept in the component's nickname, which Grasshopper saves.</li>
+<li>Fixed the Grasshopper Material Library component failing with <code>No module named 'compas_acoustics'</code>: its script pinned an empty Rhino script environment, <code>compas_acoustics_rhino</code>, instead of the one the installer fills.</li>
+<li>Fixed the worker setup from the Grasshopper installer failing at its last check: the worker's Python 3.12 inherited the <code>PYTHONPATH</code> of Rhino's 3.9 packages and could not import numpy.</li>
+<li>Fixed a simulation failing on a Source whose <code>sound_file</code> is not a RIFF WAV (an AIFF or FLAC file; the library's <code>bassoon.wav</code> is an AIFF): the file is read with soundfile.</li>
+<li>Fixed the hybrid engine counting an image source twice when its path passes through an edge (+6 dB on that path); <code>hybrid.early.image_sources</code> now keeps one image per position, as <code>ShoeBox</code> does.</li>
+<li>Fixed low-frequency bias in EDT, C50, C80, D50, DRR and Ts caused by the delay of causal octave filters.</li>
+<li>Fixed <code>speech_transmission_index</code> returning NaN for impulse responses shorter than 1.6 s.</li>
+<li>Fixed wheels that were missing the materials library, the HRTFs, the sound files and the Grasshopper components.</li>
+<li>Fixed <code>Auraliser</code> modifying the caller's dicts, ignoring 1D responses and multichannel sounds, and wrapping energy around when resampling.</li>
+<li>Fixed simulations above 16 kHz with air absorption, which failed on a 7 against 8 octave band mismatch.</li>
+<li>Fixed <code>Receiver</code> and <code>Source</code> losing name, orientation, directivity and settings in JSON and <code>copy()</code>.</li>
+<li>Fixed NaN responses for a source at a receiver's position (now a <code>ValueError</code>), and unrelated errors for points inside a closed obstacle, scenes of obstacles only, or too few walls.</li>
+<li>Fixed the hybrid failing on a fully absorbing surface, and counting a wall hit on a diffraction apex as a reflection.</li>
+<li>Fixed <code>display_in_viewer</code> guards that treated <code>compas.is_rhino()</code> as a boolean, and the default HRTF path that pointed at a missing file.</li>
+<li>Fixed the Grasshopper Auralise and Analyse IR components using a fixed sample rate.</li>
+<li>Fixed <code>AcousticObject.from_obj</code> reading OBJ files in the platform's encoding: a UTF-8 byte order mark dropped the first vertex, and non-ASCII group names were garbled on Windows; files are read as UTF-8.</li>
+<li>Fixed obstacle faces lying on a boundary face being counted when the scene is not aligned with the axes: the test used the distance along each axis instead of the distance to the face's plane.</li>
+</ul>
+<h3 id="removed">Removed<a class="headerlink" href="#removed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Removed Plot 2D Settings and Plot 2D's Rhino geometry (texts, points, polylines, grid).</li>
+<li>Removed the worker's <code>compas.rpc</code> transport (<code>proxy()</code>) and its temporary WAV folders.</li>
+<li>Removed <code>Simulator</code>; use <code>Scene.simulate(method)</code> and <code>RayField.from_scene</code>.</li>
+<li>Removed <code>simulation_platform</code> from <code>Scene</code> and <code>ImpulseResponse</code>; <code>generation</code> names the method.</li>
+<li>Removed <code>Mono(n_jobs=)</code> and the parallel ray tracer, which wrote private <code>Room</code> state.</li>
+<li>Removed <code>AcousticObjectsGroup</code>, <code>AcousticObject.surface_groups</code>, <code>Scene.iter_acoustic_objects</code>, <code>Scene.scene_surface_groups</code> and their display and print methods; see <code>scene_materials</code> and <code>print_scene_materials</code>.</li>
+<li>Removed <code>compas_acoustics.stage_acoustics</code> and <code>tools.Tools</code>; use <code>Analyser.stage_support()</code>.</li>
+<li>Removed <code>pra_converter.material_to_pra</code>, <code>mesh_to_pra_wall</code>, <code>acoustic_object_to_pra_walls</code> and <code>room_octave_bands</code>; see <code>RoomGeometry.to_pra</code>.</li>
+<li>Removed <code>Auraliser.multiconvolution()</code>, <code>decode_stereo_simple()</code>, <code>resample_signal()</code> and FuMa channel order.</li>
+<li>Removed <code>compas_acoustics.orchestra_layouts</code> and the Orchestra Layout component.</li>
+<li>Removed the two MIT KEMAR HRTF sets and <code>speech.wav</code>.</li>
+<li>Removed <code>Hybrid</code> and <code>Hybrid.binaural()</code>; use <code>Binaural</code> or <code>Ambisonics</code>.</li>
+<li>Removed the ambisonic decoders of <code>Auraliser</code> (mono from W, stereo cardioids and binaural: <code>output_format</code>, <code>decode</code>, <code>decode_mono</code>, <code>decode_stereo</code>, <code>decode_binaural</code>, <code>hrtf_path</code>, <code>binaural_filters</code>, <code>ambisonics_upmix_downmix</code>), <code>binaural.magls_filters</code>, <code>worker.convolve</code> and the installer's <code>worker</code> option <code>binaural</code>. The hybrid renders binaural responses with an HRTF per path and per delay line; an ambisonic response or signal is saved as ACN/SN3D for a decoder elsewhere. Impulse responses of different formats in one <code>Auraliser</code> raise a <code>ValueError</code>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="contributing/docs.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Contributing to the documentation">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Contributing to the documentation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="license.html" class="md-footer__link md-footer__link--next" aria-label="Next: License and credits">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                License and credits
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025, Gramazio Kohler Research, ETH Zurich
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/gramaziokohler/compas_acoustics" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://forum.compas-framework.org/" target="_blank" rel="noopener" title="forum.compas-framework.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M225.9 32C103.3 32 0 130.5 0 252.1 0 256 .1 480 .1 480l225.8-.2c122.7 0 222.1-102.3 222.1-223.9S348.6 32 225.9 32M224 384c-19.4 0-37.9-4.3-54.4-12.1L88.5 392l22.9-75c-9.8-18.1-15.4-38.9-15.4-61 0-70.7 57.3-128 128-128s128 57.3 128 128-57.3 128-128 128"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["content.code.copy", "navigation.footer", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

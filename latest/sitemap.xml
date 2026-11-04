@@ -1,179 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/index.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/changelog/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/changelog.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/concepts/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/concepts.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/license/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/license.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/troubleshooting/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/troubleshooting.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/api/compas_acoustics/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/api/compas_acoustics.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/contributing/docs/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/contributing/docs.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/getting_started/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/getting_started.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/index.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Acoustic_Object/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Acoustic_Object.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Analyse_IR/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Analyse_IR.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Audio_Player/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Audio_Player.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Auralise/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Auralise.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Channel/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Channel.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Construct_Material/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Construct_Material.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Deconstruct_IR/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Deconstruct_IR.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Deconstruct_IR_Graph/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Deconstruct_IR_Graph.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Deconstruct_Material/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Deconstruct_Material.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Material_Library/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Material_Library.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Model/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Model.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Plot_2D/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Plot_2D.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Receiver/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Receiver.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Regularized_Fitness/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Regularized_Fitness.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Simulate_Ambisonics/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Simulate_Ambisonics.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Simulate_Binaural/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Simulate_Binaural.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Simulate_Mono/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Simulate_Mono.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Source/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Source.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Visualise_Billiard/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Visualise_Billiard.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Visualise_Energy_Map/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Visualise_Energy_Map.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Visualise_Rays/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Visualise_Rays.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Visualise_Reflections/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Visualise_Reflections.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Worker/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/components/CA_Worker.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/examples/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/examples/index.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/examples/simple_simulation_shoebox/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/grasshopper/examples/simple_simulation_shoebox.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/installation/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/installation/index.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/installation/grasshopper/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/installation/grasshopper.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/installation/python/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/installation/python.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/python/tutorial/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/python/tutorial.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/python/examples/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/python/examples/index.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/python/examples/obj/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/python/examples/obj.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/python/examples/rays/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/python/examples/rays.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/python/examples/scattered_rays/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/python/examples/scattered_rays.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/python/examples/simple_simulation_shoebox/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/python/examples/simple_simulation_shoebox.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
     <url>
-         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/python/examples/specular_reflections/</loc>
+         <loc>https://gramaziokohler.github.io/compas_acoustics/latest/python/examples/specular_reflections.html</loc>
          <lastmod>2026-11-04</lastmod>
     </url>
 </urlset>
