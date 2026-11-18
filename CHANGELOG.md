@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+### Changed
+
+### Removed
+
+
+## [0.1.1] 2026-11-18
+
+### Added
+
 * Added `invoke yakerize` and `invoke publish-yak`, and the `publish_yak` workflow: the Grasshopper plugin as a Yak package, published to the Yak test server.
 * Added the Install Worker component, which creates the worker with the `compas_acoustics` of the plugin's version from PyPI.
 
