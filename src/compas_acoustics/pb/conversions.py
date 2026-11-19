@@ -21,6 +21,8 @@ from compas_pb.registry import pb_serializer
 
 from compas_acoustics.acoustic_object import AcousticObject
 from compas_acoustics.ir import ImpulseResponse
+from compas_acoustics.lab.results import ScatteringResult
+from compas_acoustics.lab.sample import ScatteringSample
 from compas_acoustics.materials import AcousticMaterial
 from compas_acoustics.pb import plain
 from compas_acoustics.pb.generated import acoustics_pb2 as pb
@@ -397,3 +399,114 @@ def specular_reflections_from_pb(message):
     found = SpecularReflections([_path_from_pb(path) for path in message.paths], name=message.name if message.HasField("name") else None)
     _give_sources(found, {index: source_from_pb(source) for index, source in message.sources.items()})
     return _identify(found, message)
+
+
+# =============================================================================
+# The scattering lab: ScatteringSample, ScatteringResult
+# =============================================================================
+
+
+def _set_array(message, values):
+    """Fill an ``ArrayData`` with ``values``, in C order."""
+    values = np.asarray(values, dtype=float)
+    message.shape.extend(int(n) for n in values.shape)
+    message.values.extend(values.ravel().tolist())
+
+
+def _array(message):
+    return np.asarray(message.values, dtype=float).reshape(tuple(message.shape))
+
+
+@pb_serializer(ScatteringSample)
+def scattering_sample_to_pb(sample):
+    data = sample.__data__
+    message = pb.ScatteringSampleData(
+        guid=str(sample.guid),
+        name=sample._name or "",
+        mode=data["mode"],
+        diameter=data["diameter"],
+        structural_depth=data["structural_depth"],
+        symmetry=data["symmetry"],
+        baseplate=data["baseplate"],
+        reference_kind=data["reference_kind"],
+    )
+    message.sample.CopyFrom(mesh_to_pb(data["sample"]))
+    message.reference.CopyFrom(mesh_to_pb(data["reference"]))
+    message.period.extend(data["period"] or [])
+    if data["feature_size"] is not None:
+        message.feature_size = float(data["feature_size"])
+    message.warnings.extend(data["warnings"])
+    return message
+
+
+@pb_deserializer(pb.ScatteringSampleData)
+def scattering_sample_from_pb(message):
+    data = {
+        "sample": mesh_from_pb(message.sample),
+        "reference": mesh_from_pb(message.reference),
+        "mode": message.mode,
+        "diameter": message.diameter,
+        "period": list(message.period) or None,
+        "structural_depth": message.structural_depth,
+        "feature_size": message.feature_size if message.HasField("feature_size") else None,
+        "symmetry": message.symmetry,
+        "baseplate": message.baseplate,
+        "warnings": list(message.warnings),
+        "reference_kind": message.reference_kind,
+    }
+    sample = ScatteringSample.__from_data__(data)
+    if message.name:
+        sample.name = message.name
+    return _identify(sample, message)
+
+
+@pb_serializer(ScatteringResult)
+def scattering_result_to_pb(result):
+    data = result.__data__
+    message = pb.ScatteringResultData(guid=str(result.guid), name=result._name or "")
+    for field in (
+        "bands",
+        "s_bands",
+        "octave_bands",
+        "s_octaves",
+        "filled_octaves",
+        "source_colatitude",
+        "source_azimuth",
+        "source_weights",
+        "polar_source_indices",
+        "warnings",
+        "d_bands",
+        "d_octaves",
+    ):
+        getattr(message, field).extend(data[field])
+    for field in ("s_angle", "receiver_directions", "polar_sample_db", "polar_reference_db", "d_angle"):
+        _set_array(getattr(message, field), data[field])
+    message.generation.CopyFrom(_serializer_any(plain(data["generation"])))
+    return message
+
+
+@pb_deserializer(pb.ScatteringResultData)
+def scattering_result_from_pb(message):
+    data = {
+        field: list(getattr(message, field))
+        for field in (
+            "bands",
+            "s_bands",
+            "octave_bands",
+            "s_octaves",
+            "filled_octaves",
+            "source_colatitude",
+            "source_azimuth",
+            "source_weights",
+            "polar_source_indices",
+            "warnings",
+            "d_bands",
+            "d_octaves",
+        )
+    }
+    data.update({field: _array(getattr(message, field)) for field in ("s_angle", "receiver_directions", "polar_sample_db", "polar_reference_db", "d_angle")})
+    data["generation"] = _deserialize_any(message.generation) if message.HasField("generation") else None
+    result = ScatteringResult.__from_data__(data)
+    if message.name:
+        result.name = message.name
+    return _identify(result, message)

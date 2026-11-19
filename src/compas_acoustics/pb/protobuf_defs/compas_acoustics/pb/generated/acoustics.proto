@@ -148,3 +148,51 @@ message SpecularReflectionsData {
   repeated SpecularPathData paths = 3;
   map<int32, SourceData> sources = 4;
 }
+
+// An n-dimensional array: values in C order, and its shape.
+message ArrayData {
+  repeated double values = 1;
+  repeated int64 shape = 2;
+}
+
+// A scattering sample and its flat (or proxy) reference, as ScatteringSample.__data__ keeps them.
+message ScatteringSampleData {
+  string guid = 1;
+  string name = 2;
+  compas_pb.data.MeshData sample = 3;
+  compas_pb.data.MeshData reference = 4;
+  string mode = 5;
+  double diameter = 6;
+  // empty: no period (as_drawn)
+  repeated double period = 7;
+  double structural_depth = 8;
+  optional double feature_size = 9;
+  string symmetry = 10;
+  double baseplate = 11;
+  repeated string warnings = 12;
+  string reference_kind = 13;
+}
+
+// A virtual scattering measurement, as ScatteringResult.__data__ keeps it.
+message ScatteringResultData {
+  string guid = 1;
+  string name = 2;
+  repeated int32 bands = 3;
+  repeated double s_bands = 4;
+  repeated int32 octave_bands = 5;
+  repeated double s_octaves = 6;
+  repeated int32 filled_octaves = 7;
+  ArrayData s_angle = 8;
+  repeated double source_colatitude = 9;
+  repeated double source_azimuth = 10;
+  repeated double source_weights = 11;
+  ArrayData receiver_directions = 12;
+  ArrayData polar_sample_db = 13;
+  ArrayData polar_reference_db = 14;
+  repeated int32 polar_source_indices = 15;
+  repeated string warnings = 16;
+  compas_pb.data.AnyData generation = 17;
+  ArrayData d_angle = 18;
+  repeated double d_bands = 19;
+  repeated double d_octaves = 20;
+}
