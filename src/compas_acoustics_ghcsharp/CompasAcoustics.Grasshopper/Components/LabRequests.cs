@@ -1,0 +1,145 @@
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using CompasAcoustics.Pb;
+using CompasPb.Data;
+using Rhino.Geometry;
+
+namespace CompasAcoustics.Grasshopper
+{
+    /// <summary>What the lab components send to the worker: the arguments of each call, built from plain data so that tests can drive them.</summary>
+    public static class LabRequests
+    {
+        /// <summary>
+        /// The mesh of a Rhino geometry: a mesh as is; a Brep, surface, SubD, box or extrusion meshed with
+        /// <see cref="MeshingParameters.QualityRenderMesh"/> and joined; null for anything else (and for a geometry that meshes to nothing).
+        /// </summary>
+        public static MeshData? MeshOf(object? geometry)
+        {
+            var mesh = geometry switch
+            {
+                Mesh m => m,
+                Brep brep => Meshed(brep),
+                Extrusion extrusion => Meshed(extrusion.ToBrep()),
+                Surface surface => Meshed(surface.ToBrep()),
+                SubD subd => Meshed(subd.ToBrep()),
+                Box box => Meshed(box.ToBrep()),
+                _ => null,
+            };
+            return mesh == null || mesh.Faces.Count == 0 ? null : MeshConversion.ToMeshData(mesh);
+        }
+
+        private static Mesh? Meshed(Brep? brep)
+        {
+            var parts = brep == null ? null : Mesh.CreateFromBrep(brep, MeshingParameters.QualityRenderMesh);
+            if (parts == null || parts.Length == 0)
+                return null;
+            var joined = new Mesh();
+            joined.Append(parts);
+            return joined;
+        }
+
+        /// <summary>
+        /// The call of <c>make_scattering_sample</c>: the mesh and the mode as arguments, every input that is set as a keyword
+        /// (<paramref name="frame"/>, the mounting plane, as <c>frame</c>);
+        /// <c>problem</c> says why the inputs cannot make a sample, and then there is no call to make.
+        /// </summary>
+        public static (object?[] args, Dictionary<string, object?> kwargs, string? problem) Sample(MeshData mesh, string mode, double? diameter,
+            MeshData? reference, double? baseplate, string? symmetry, string? name, FrameData? frame)
+        {
+            var kwargs = new Dictionary<string, object?>();
+            if (diameter is double d)
+                kwargs["diameter"] = d;
+            if (reference != null)
+                kwargs["reference"] = reference;
+            if (baseplate is double b)
+                kwargs["baseplate"] = b;
+            if (!string.IsNullOrEmpty(symmetry))
+                kwargs["symmetry"] = symmetry;
+            if (!string.IsNullOrEmpty(name))
+                kwargs["name"] = name;
+            if (frame != null)
+                kwargs["frame"] = frame;
+            var problem = mode == "disc" && diameter == null ? "A disc sample needs 'diameter'."
+                : mode == "disc" && reference != null ? "'reference' is used in as_drawn mode only."
+                : null;
+            return (new object?[] { mesh, mode }, kwargs, problem);
+        }
+
+        /// <summary>The strip of a sample: its mode and diameter, as the lab measures it.</summary>
+        public static string SampleStatus(string mode, double diameter) => string.Create(CultureInfo.InvariantCulture, $"{mode}, d {diameter:0.00} m");
+
+        /// <summary>The call of <c>run_scattering_lab</c>: the sample as the argument; the preset (if set) and the band range as keywords.</summary>
+        public static (object?[] args, Dictionary<string, object?> kwargs) Lab(ScatteringSampleData sample, string? preset, string bandRange)
+        {
+            var kwargs = new Dictionary<string, object?>();
+            if (!string.IsNullOrEmpty(preset))
+                kwargs["preset"] = preset;
+            kwargs["band_range"] = bandRange;
+            return (new object?[] { sample }, kwargs);
+        }
+
+        /// <summary>
+        /// The key of a <c>run_scattering_lab</c> call: a hash of the call with the sample's guid cleared, because every solution of
+        /// Scattering Sample makes a sample with a new guid and the same geometry must keep its run (or its result).
+        /// </summary>
+        public static string RunKey(object?[] args, IDictionary<string, object?> kwargs)
+        {
+            var keyed = (object?[])args.Clone();
+            if (keyed.Length > 0 && keyed[0] is ScatteringSampleData sample)
+            {
+                var clone = sample.Clone();
+                clone.Guid = "";
+                keyed[0] = clone;
+            }
+            return AsyncRuns.Key("run_scattering_lab", keyed, kwargs);
+        }
+
+        /// <summary>The preview sources of a result as its Polar Preview dropdown lists them: <c>θ 30°, φ 0°</c>, the colatitude and azimuth in degrees.</summary>
+        public static string[] PreviewLabels(ScatteringResultData result) =>
+            result.PolarSourceIndices.Select(i => string.Create(CultureInfo.InvariantCulture, $"θ {result.SourceColatitude[i]:0.##}°, φ {result.SourceAzimuth[i]:0.##}°")).ToArray();
+
+        /// <summary>
+        /// The call of <c>polar_balloon</c>: the result as the argument, the preview, octave, body, radius and floor as keywords.
+        /// <c>problem</c> says why the inputs cannot make a call: an octave the result did not simulate or a preview it does not have.
+        /// </summary>
+        public static (object?[] args, Dictionary<string, object?> kwargs, string? problem) Balloon(ScatteringResultData result, int preview, int octave,
+            string body, double radius, double floorDb)
+        {
+            var kwargs = new Dictionary<string, object?>
+            {
+                ["preview"] = (long)preview,
+                ["octave"] = (long)octave,
+                ["body"] = body,
+                ["radius"] = radius,
+                ["floor_db"] = floorDb,
+            };
+            var previews = result.PolarSourceIndices.Count;
+            var problem = previews == 0 ? "The result has no preview sources."
+                : preview < 0 || preview >= previews ? $"'preview' must be 0 to {previews - 1}"
+                : result.OctaveBands.Count == 0 ? "The result has no simulated octaves."
+                : !result.OctaveBands.Contains(octave) ? $"'octave' must be one of {string.Join(", ", result.OctaveBands)} Hz"
+                : null;
+            return (new object?[] { result }, kwargs, problem);
+        }
+
+        /// <summary>
+        /// The call of <c>lab_material</c>: the name and the absorption (the numbers if given, else the material to take it from) as
+        /// arguments; the result and the category (if set) as keywords. <c>problem</c> says why the inputs cannot make a call.
+        /// </summary>
+        public static (object?[] args, Dictionary<string, object?> kwargs, string? problem) Material(string name, IList<double> absorption,
+            AcousticMaterialData? material, ScatteringResultData? result, string? category)
+        {
+            var kwargs = new Dictionary<string, object?>();
+            if (result != null)
+                kwargs["result"] = result;
+            if (!string.IsNullOrEmpty(category))
+                kwargs["category"] = category;
+            object? alpha = absorption.Count > 0 ? absorption.ToList() : material;
+            var problem = absorption.Count == 0 && material == null ? "Connect 'absorption' (1 or 7 values) or a 'material' to take it from."
+                : absorption.Count != 0 && absorption.Count != 1 && absorption.Count != 7 ? "'absorption' takes 1 or 7 values (125 Hz to 8 kHz)."
+                : null;
+            return (new object?[] { name, alpha }, kwargs, problem);
+        }
+    }
+}

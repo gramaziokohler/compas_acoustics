@@ -19,7 +19,7 @@ namespace CompasAcoustics.Grasshopper
         /// <summary>The ribbon's panels, left to right: the subcategories the specs name.</summary>
         public static readonly IReadOnlyList<string> Subcategories = new[]
         {
-            "Elements", "Params", "Model", "Simulation", "Analysis", "Auralisation", "Display", "Util", "Optimization",
+            "Elements", "Params", "Model", "Simulation", "Analysis", "Auralisation", "Display", "Util", "Optimization", "Lab",
         };
 
         /// <summary>
