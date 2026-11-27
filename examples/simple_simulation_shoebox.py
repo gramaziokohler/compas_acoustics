@@ -4,26 +4,24 @@ A shoebox room built from scratch, one material per surface, simulated with imag
 and analysed. It is the Python twin of the Grasshopper definition simple_simulation_shoebox.ghx.
 """
 
+from compas.geometry import Vector
+
 import compas_acoustics as ca
 
 
 
-########### create a source and a receiver
-source_1 = ca.Source(x=4.0, y=3.0, z=1.5, name="source_1")
-source_2 = ca.Source(x=3.0, y=2.0, z=1.5, name="source_2")
-receiver_1 = ca.Receiver(x=2.0, y=2.0, z=1.6, name="receiver_1")
-receiver_2 = ca.Receiver(x=1.0, y=1.0, z=1.1, name="receiver_2")
+########### create a source and a receiver, facing each other
+source = ca.Source(x=4.0, y=3.0, z=1.5, name="source", direction=Vector(-3, -2, 0))
+receiver = ca.Receiver(x=1.0, y=1.0, z=1.1, name="receiver", direction=Vector(3, 2, 0))
 
 
 ########### create a scene
 scene = ca.Scene(name="Demo Scene", description="This is a demo scene.")
 
 
-########### add the sources and receivers to the scene
-scene.add_source(source_1)
-scene.add_source(source_2)
-scene.add_receiver(receiver_1)
-scene.add_receiver(receiver_2)
+########### add the source and the receiver to the scene
+scene.add_source(source)
+scene.add_receiver(receiver)
 
 ########### create acoustic materials
 concrete = ca.AcousticMaterial(name='concrete', absorption_coefficients=[0.01, 0.01, 0.02, 0.02, 0.02, 0.05, 0.05], scattering_coefficients=[0.01, 0.01, 0.03, 0.05, 0.1, 0.1, 0.1])
@@ -48,8 +46,8 @@ scene.add_acoustic_objects(room)
 rirs = scene.simulate(ca.Mono(ray_tracing=True, n_rays=10000, air_absorption=True))
 
 
-########### analyze one RIR (they are keyed '<receiver guid>_<source guid>')
-ir = next(ir for ir in rirs.values() if ir.receiver.name == "receiver_2" and ir.source.name == "source_2")
+########### analyze the RIR of the source and the receiver (the responses are keyed '<receiver guid>_<source guid>')
+ir = next(iter(rirs.values()))
 analyser = ca.Analyser(ir)
 results = analyser.analyse()
 

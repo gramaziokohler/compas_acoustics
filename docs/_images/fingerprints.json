@@ -321,13 +321,13 @@
     }
   },
   "ghx": {
-    "simple_simulation_shoebox": "dc3e0d506e0c"
+    "simple_simulation_shoebox": "39f08b22a7b1"
   },
   "py": {
     "obj": "59d1fe9fefeb",
     "rays": "8e1ba38b2799",
     "scattered_rays": "81ad0b7f7a17",
-    "simple_simulation_shoebox": "1c1caafc8f9d",
+    "simple_simulation_shoebox": "548e5198e37d",
     "specular_reflections": "f2ab5a4cbf66"
   }
 }

@@ -2,19 +2,25 @@
 
 It captures what is missing or out of date, as docs/_images/fingerprints.json tells:
 
-* each component on an empty canvas, to docs/_images/components/<CA_name>.png;
+* each component on an empty canvas, to docs/_images/components/<CA_name>.png; Plot 2D charts the T30 of the shoebox
+  example (examples/simple_simulation_shoebox.py), which reaches it over a hidden wire;
 * each examples/<name>.ghx: its canvas (canvas.png) and the Rhino viewport with its preview (viewport.png), in
-  docs/_images/examples/<name>/, once its solution and background runs have finished.
+  docs/_images/examples/<name>/, once its solution and background runs have finished; the shoebox example's viewport is
+  also the home page's image, docs/_images/home.png.
+
+The definitions open in a new, empty Rhino document, so that no model open in Rhino shows in the viewport.
 
 and records their fingerprints. Set ALL = True to capture everything. Your open Grasshopper document is restored at
 the end. See docs/contributing/docs.md.
 """
 
 import os
+import shutil
 import sys
 import tempfile
 import time
 import traceback
+from collections import namedtuple
 from pathlib import Path
 
 import clr  # noqa: F401
@@ -38,6 +44,8 @@ SETTLE = 3.0  # seconds a solved .ghx must stay idle before its capture
 # the capture points the variable at a relative path and runs in a temporary folder that has an empty file there.
 SHOWN_PYTHON = "~/.compas_acoustics/workers/0.1.0/bin/python"
 PYTHON_VARIABLE = "COMPAS_ACOUSTICS_WORKER_PYTHON"
+# What Plot 2D charts in its image: the T30 examples/simple_simulation_shoebox.py prints, per octave band and overall
+PLOTTED_T30 = ([125.0, 250.0, 500.0, 1000.0, 2000.0, 4000.0, 8000.0], [1.49, 1.27, 0.33, 0.20, 0.23, 0.20, 0.19], 0.27)
 
 try:
     REPO = Path(__file__).resolve().parents[2]
@@ -50,6 +58,11 @@ from ghcomponents import fingerprints  # noqa: E402
 from ghcomponents import specs  # noqa: E402
 
 IMAGES = REPO / "docs" / "_images"
+# the example whose viewport is the home page's image
+HOME_EXAMPLE = "simple_simulation_shoebox"
+
+# a definition to capture and where its canvas and its viewport go
+Capture = namedtuple("Capture", "name ghx canvas viewport")
 
 
 def log(message):
@@ -84,21 +97,78 @@ def render(canvas, objects, path, zoom=ZOOM):
     bitmap.Dispose()
 
 
+def _plugin_type(name):
+    for assembly in System.AppDomain.CurrentDomain.GetAssemblies():
+        if assembly.GetName().Name == "CompasAcoustics":
+            return assembly.GetType(name)
+    raise RuntimeError("the CompasAcoustics plugin is not loaded")
+
+
+def _plotted_t30():
+    """The shoebox example's T30 as Analyse Impulse Response outputs it: a ParameterGoo of the plugin."""
+    bands, values, overall = PLOTTED_T30
+    content = System.Activator.CreateInstance(
+        _plugin_type("CompasAcoustics.Grasshopper.ParameterGoo+Content"),
+        System.Array[System.Object](
+            [
+                "T30",
+                "Reverberation Time (T30)",
+                "Frequency (Hz)",
+                "Time (s)",
+                "bands",
+                System.Array[System.Double](bands),
+                System.Array[System.Array[System.Double]]([System.Array[System.Double](values)]),
+                System.Double(overall),
+                System.Array[System.String]([]),
+            ]
+        ),
+    )
+    return System.Activator.CreateInstance(_plugin_type("CompasAcoustics.Grasshopper.ParameterGoo"), System.Array[System.Object]([content]))
+
+
+def _feed_plot(document, plot):
+    """Wire the T30 into Plot 2D's data from a parameter left of the image; the wire is hidden."""
+    source = Grasshopper.Kernel.Parameters.Param_GenericObject()
+    source.CreateAttributes()
+    source.Attributes.Pivot = PointF(-400, 100)
+    source.PersistentData.Append(_plotted_t30())
+    document.AddObject(source, False)
+    port = next(p for p in plot.Params.Input if p.Name == "data")
+    port.AddSource(source)
+    port.WireDisplay = Grasshopper.Kernel.GH_ParamWireDisplay.hidden
+
+
 def capture_component(canvas, component, guid):
     document = Grasshopper.Kernel.GH_Document()
     obj = Grasshopper.Instances.ComponentServer.EmitObject(System.Guid(guid))
     obj.CreateAttributes()
     obj.Attributes.Pivot = PointF(100, 100)
     document.AddObject(obj, False)
+    plotted = component.key == "CA_Plot_2D"
+    if plotted:
+        _feed_plot(document, obj)
     canvas.Document = document  # this solves it: clear what the solution left, its warning colour among it
     document.Enabled = False
     for item in [obj] + list(obj.Params):
-        item.ClearData()
+        if not plotted:
+            item.ClearData()
+            item.Phase = Grasshopper.Kernel.GH_SolutionPhase.Blank
         item.ClearRuntimeMessages()
-        item.Phase = Grasshopper.Kernel.GH_SolutionPhase.Blank
-    obj.Message = None
+    if not plotted:
+        obj.Message = None
     render(canvas, [obj], IMAGES / "components" / (component.key + ".png"))
     document.Dispose()
+
+
+def empty_rhino_document():
+    """A new, empty Rhino document to capture the examples' viewports in; the open one, when it holds nothing."""
+    if Rhino.RhinoDoc.ActiveDoc is not None and Rhino.RhinoDoc.ActiveDoc.Objects.Count == 0:
+        return Rhino.RhinoDoc.ActiveDoc
+    Rhino.RhinoApp.RunScript("_-New _None", False)
+    document = Rhino.RhinoDoc.ActiveDoc
+    if document is None or document.Objects.Count > 0:
+        raise RuntimeError("could not open an empty Rhino document: open one (File > New, no template) and run again")
+    return document
 
 
 def _running(document):
@@ -191,9 +261,10 @@ class ExampleQueue:
                 return
             if time.time() - self.idle_since < SETTLE:
                 return
-            folder = IMAGES / "examples" / self.example.name
-            render(self.canvas, list(self.document.Objects), folder / "canvas.png", CANVAS_ZOOM)
-            capture_viewport(self.document, folder / "viewport.png")
+            render(self.canvas, list(self.document.Objects), self.example.canvas, CANVAS_ZOOM)
+            capture_viewport(self.document, self.example.viewport)
+            if self.example.name == HOME_EXAMPLE:
+                shutil.copyfile(str(self.example.viewport), str(IMAGES / "home.png"))
             fingerprints.record_file(self.record, "ghx", self.example.ghx)
             fingerprints.save(self.record)
             log("captured {}".format(self.example.name))
@@ -235,7 +306,10 @@ def main(capture_all=None):
 
     ghx = [e for e in examples.discover(REPO / "examples") if e.ghx is not None]
     stale = {s.name for s in fingerprints.stale_files("ghx", [e.ghx for e in ghx], record, IMAGES)}
-    queue = ExampleQueue(canvas, original, [e for e in ghx if capture_all or e.name in stale], record)
+    items = [Capture(e.name, e.ghx, IMAGES / "examples" / e.name / "canvas.png", IMAGES / "examples" / e.name / "viewport.png") for e in ghx if capture_all or e.name in stale]
+    if items:
+        empty_rhino_document()
+    queue = ExampleQueue(canvas, original, items, record)
     queue.start()
     return queue
 

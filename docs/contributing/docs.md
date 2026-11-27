@@ -34,7 +34,9 @@ Grasshopper images
 :   Need Rhino 8 with the current plugin installed (`invoke yakerize`, then install the `.yak` of `dist/yak_package`). Open
     Rhino 8 and Grasshopper, open `docs/_tools/capture_grasshopper.py` in Rhino's ScriptEditor and run it. It
     captures what is missing or out of date (component screenshots, and the canvas and viewport of each `.ghx`)
-    and updates the fingerprints. Set `ALL = True` at the top of the script to capture everything.
+    and updates the fingerprints. Set `ALL = True` at the top of the script to capture everything. The
+    examples open in a new empty Rhino document; the viewport of `simple_simulation_shoebox` is also the home page's
+    `docs/_images/home.png`.
 
 Component icons
 :   `tools/icons.py` draws them. After a change to an icon, run `python tools/icons.py`: it writes the plugin's

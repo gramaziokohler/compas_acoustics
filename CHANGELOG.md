@@ -9,7 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+* The docs workflow can be run by hand (`workflow_dispatch`) with a released version, such as `0.2.0`: it builds the documentation from main and deploys it as that version and as latest, for documentation fixes between releases.
+
 ### Changed
+
+* The shoebox example (`simple_simulation_shoebox.ghx` and `.py`) has one source and one receiver facing each other instead of two of each facing +x; its walkthrough and images follow.
+* `capture_grasshopper.py` opens the examples in a new empty Rhino document, copies the shoebox example's viewport to the home page image, and captures Plot 2D with a T30 chart instead of empty.
 
 ### Removed
 

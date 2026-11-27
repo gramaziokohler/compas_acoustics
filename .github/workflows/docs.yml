@@ -7,6 +7,12 @@ on:
   pull_request:
     branches:
       - main
+  # redeploys a released version's documentation from main, for documentation fixes between releases
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "The released version whose documentation main replaces, as the docs site lists it (e.g. 0.2.0); it becomes latest"
+        required: true
 
 permissions:
   contents: read
@@ -16,10 +22,23 @@ env:
   UV_TORCH_BACKEND: cpu
 
 jobs:
-  # only checks that the docs build: release.yml deploys them
+  # only checks that the docs build: release.yml deploys them with each release
   build:
+    if: github.event_name != 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: compas-dev/compas-actions/docs@v1
         with:
+          extras: docs
+
+  deploy:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: compas-dev/compas-actions/docs@v1
+        with:
+          deploy: true
+          version: ${{ inputs.version }}
           extras: docs

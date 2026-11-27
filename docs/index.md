@@ -3,8 +3,8 @@
 compas_acoustics simulates, analyses and auralises the acoustics of rooms modelled with COMPAS or in Rhino and Grasshopper. It computes impulse responses with the image source method and ray tracing (Mono), and with a hybrid engine of image sources, edge diffraction and a directional feedback delay network (Binaural, Ambisonics); it derives room acoustic parameters (ISO 3382) from them and convolves them with anechoic recordings to listen to a design.
 
 <figure markdown>
-![A shoebox room in Rhino with two sources and two receivers](_images/home.png)
-<figcaption markdown>The room of [A simple simulation in a shoebox room](grasshopper/examples/simple_simulation_shoebox.md), with its sources and receivers, in Rhino.</figcaption>
+![A shoebox room in Rhino with a source facing a receiver](_images/home.png)
+<figcaption markdown>The room of [A simple simulation in a shoebox room](grasshopper/examples/simple_simulation_shoebox.md), with its source and receiver, in Rhino.</figcaption>
 </figure>
 
 ## Use it in Grasshopper or in Python
